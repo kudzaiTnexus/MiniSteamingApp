@@ -23,6 +23,8 @@
 		7B60D0A628782A510037E888 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B60D0A528782A510037E888 /* Event.swift */; };
 		7B60D0A828782B210037E888 /* PollingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B60D0A728782B210037E888 /* PollingViewModel.swift */; };
 		7B60D0AA28782B860037E888 /* ErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B60D0A928782B860037E888 /* ErrorView.swift */; };
+		7B60D0AC28782BD70037E888 /* ActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B60D0AB28782BD70037E888 /* ActivityIndicator.swift */; };
+		7B60D0AE28782BF20037E888 /* CardContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B60D0AD28782BF20037E888 /* CardContentView.swift */; };
 		7BCB2586287336CD002B04F3 /* MiniSteamingAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BCB2585287336CD002B04F3 /* MiniSteamingAppApp.swift */; };
 		7BCB2588287336CD002B04F3 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BCB2587287336CD002B04F3 /* ContentView.swift */; };
 		7BCB258A287336CE002B04F3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7BCB2589287336CE002B04F3 /* Assets.xcassets */; };
@@ -72,6 +74,8 @@
 		7B60D0A528782A510037E888 /* Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
 		7B60D0A728782B210037E888 /* PollingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PollingViewModel.swift; sourceTree = "<group>"; };
 		7B60D0A928782B860037E888 /* ErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorView.swift; sourceTree = "<group>"; };
+		7B60D0AB28782BD70037E888 /* ActivityIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicator.swift; sourceTree = "<group>"; };
+		7B60D0AD28782BF20037E888 /* CardContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardContentView.swift; sourceTree = "<group>"; };
 		7BCB2582287336CD002B04F3 /* MiniSteamingApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MiniSteamingApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7BCB2585287336CD002B04F3 /* MiniSteamingAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiniSteamingAppApp.swift; sourceTree = "<group>"; };
 		7BCB2587287336CD002B04F3 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -231,6 +235,8 @@
 				7BCB2585287336CD002B04F3 /* MiniSteamingAppApp.swift */,
 				7BCB2587287336CD002B04F3 /* ContentView.swift */,
 				7B60D0A928782B860037E888 /* ErrorView.swift */,
+				7B60D0AB28782BD70037E888 /* ActivityIndicator.swift */,
+				7B60D0AD28782BF20037E888 /* CardContentView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -498,12 +504,14 @@
 				7B60D0A0287829940037E888 /* Date+Extension.swift in Sources */,
 				7B60D090287827FE0037E888 /* HttpMethod.swift in Sources */,
 				7B60D0A628782A510037E888 /* Event.swift in Sources */,
+				7B60D0AE28782BF20037E888 /* CardContentView.swift in Sources */,
 				7B60D092287828160037E888 /* URLRequest+Extension.swift in Sources */,
 				7BCB25B9287348BD002B04F3 /* EPGServiceImplementation.swift in Sources */,
 				7BCB25B7287348A7002B04F3 /* EPGViewModel.swift in Sources */,
 				7BCB2586287336CD002B04F3 /* MiniSteamingAppApp.swift in Sources */,
 				7B60D09E2878297D0037E888 /* DateFormatter.swift in Sources */,
 				7B60D0A828782B210037E888 /* PollingViewModel.swift in Sources */,
+				7B60D0AC28782BD70037E888 /* ActivityIndicator.swift in Sources */,
 				7B60D09C2878296B0037E888 /* ViewCurrentState.swift in Sources */,
 				7B60D098287828F80037E888 /* Localizable.swift in Sources */,
 				7BCB25BB287349B9002B04F3 /* Video.swift in Sources */,
