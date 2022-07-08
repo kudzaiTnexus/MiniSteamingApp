@@ -9,6 +9,11 @@
 /* Begin PBXBuildFile section */
 		15552D8B6E12C8DDC7AD1171 /* libPods-MiniSteamingAppTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E8A098CD0B6CF166D0DD2EDE /* libPods-MiniSteamingAppTests.a */; };
 		1872EF783703772E7FDED210 /* libPods-MiniSteamingApp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 32C0451655B3B54B5D3D4429 /* libPods-MiniSteamingApp.a */; };
+		7B60D08C287827D20037E888 /* NetworkServiceImplementation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B60D08B287827D20037E888 /* NetworkServiceImplementation.swift */; };
+		7B60D08E287827E60037E888 /* Resource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B60D08D287827E60037E888 /* Resource.swift */; };
+		7B60D090287827FE0037E888 /* HttpMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B60D08F287827FE0037E888 /* HttpMethod.swift */; };
+		7B60D092287828160037E888 /* URLRequest+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B60D091287828160037E888 /* URLRequest+Extension.swift */; };
+		7B60D0942878282A0037E888 /* Publisher+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B60D0932878282A0037E888 /* Publisher+Extension.swift */; };
 		7BCB2586287336CD002B04F3 /* MiniSteamingAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BCB2585287336CD002B04F3 /* MiniSteamingAppApp.swift */; };
 		7BCB2588287336CD002B04F3 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BCB2587287336CD002B04F3 /* ContentView.swift */; };
 		7BCB258A287336CE002B04F3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7BCB2589287336CE002B04F3 /* Assets.xcassets */; };
@@ -44,6 +49,11 @@
 		32C0451655B3B54B5D3D4429 /* libPods-MiniSteamingApp.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MiniSteamingApp.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		34038031F3C137BD2D8D8C56 /* libPods-MiniSteamingAppUITests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MiniSteamingAppUITests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4A617D7C2792BB6F710A82E5 /* Pods-MiniSteamingApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MiniSteamingApp.release.xcconfig"; path = "Target Support Files/Pods-MiniSteamingApp/Pods-MiniSteamingApp.release.xcconfig"; sourceTree = "<group>"; };
+		7B60D08B287827D20037E888 /* NetworkServiceImplementation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkServiceImplementation.swift; sourceTree = "<group>"; };
+		7B60D08D287827E60037E888 /* Resource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Resource.swift; sourceTree = "<group>"; };
+		7B60D08F287827FE0037E888 /* HttpMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpMethod.swift; sourceTree = "<group>"; };
+		7B60D091287828160037E888 /* URLRequest+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLRequest+Extension.swift"; sourceTree = "<group>"; };
+		7B60D0932878282A0037E888 /* Publisher+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Publisher+Extension.swift"; sourceTree = "<group>"; };
 		7BCB2582287336CD002B04F3 /* MiniSteamingApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MiniSteamingApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7BCB2585287336CD002B04F3 /* MiniSteamingAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiniSteamingAppApp.swift; sourceTree = "<group>"; };
 		7BCB2587287336CD002B04F3 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -94,6 +104,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7B60D08A287827A70037E888 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				7B60D08B287827D20037E888 /* NetworkServiceImplementation.swift */,
+				7B60D08D287827E60037E888 /* Resource.swift */,
+				7B60D08F287827FE0037E888 /* HttpMethod.swift */,
+				7B60D091287828160037E888 /* URLRequest+Extension.swift */,
+				7B60D0932878282A0037E888 /* Publisher+Extension.swift */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
 		7BCB2579287336CD002B04F3 = {
 			isa = PBXGroup;
 			children = (
@@ -119,9 +141,8 @@
 		7BCB2584287336CD002B04F3 /* MiniSteamingApp */ = {
 			isa = PBXGroup;
 			children = (
-				7BCB25B128733912002B04F3 /* AsyncDisplayKit */,
-				7BCB25B0287338B5002B04F3 /* UIKit */,
-				7BCB25AF2873389F002B04F3 /* SwiftUI */,
+				7B60D08A287827A70037E888 /* Common */,
+				7BCB25AF2873389F002B04F3 /* Sources */,
 				7BCB2589287336CE002B04F3 /* Assets.xcassets */,
 				7BCB258B287336CE002B04F3 /* Preview Content */,
 			);
@@ -153,7 +174,7 @@
 			path = MiniSteamingAppUITests;
 			sourceTree = "<group>";
 		};
-		7BCB25AF2873389F002B04F3 /* SwiftUI */ = {
+		7BCB25AF2873389F002B04F3 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
 				7BCB25B528734807002B04F3 /* Service */,
@@ -161,21 +182,7 @@
 				7BCB25B3287347EA002B04F3 /* ViewModel */,
 				7BCB25B2287347E2002B04F3 /* View */,
 			);
-			path = SwiftUI;
-			sourceTree = "<group>";
-		};
-		7BCB25B0287338B5002B04F3 /* UIKit */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = UIKit;
-			sourceTree = "<group>";
-		};
-		7BCB25B128733912002B04F3 /* AsyncDisplayKit */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = AsyncDisplayKit;
+			path = Sources;
 			sourceTree = "<group>";
 		};
 		7BCB25B2287347E2002B04F3 /* View */ = {
@@ -437,8 +444,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7B60D08C287827D20037E888 /* NetworkServiceImplementation.swift in Sources */,
+				7B60D08E287827E60037E888 /* Resource.swift in Sources */,
 				7BCB2588287336CD002B04F3 /* ContentView.swift in Sources */,
+				7B60D0942878282A0037E888 /* Publisher+Extension.swift in Sources */,
 				7BCB25BD28734A51002B04F3 /* ScheduleAsset.swift in Sources */,
+				7B60D090287827FE0037E888 /* HttpMethod.swift in Sources */,
+				7B60D092287828160037E888 /* URLRequest+Extension.swift in Sources */,
 				7BCB25B9287348BD002B04F3 /* VideoService.swift in Sources */,
 				7BCB25B7287348A7002B04F3 /* VideoVIewModel.swift in Sources */,
 				7BCB2586287336CD002B04F3 /* MiniSteamingAppApp.swift in Sources */,
