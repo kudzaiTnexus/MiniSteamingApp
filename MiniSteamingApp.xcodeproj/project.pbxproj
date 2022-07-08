@@ -27,6 +27,9 @@
 		7B60D0AE28782BF20037E888 /* CardContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B60D0AD28782BF20037E888 /* CardContentView.swift */; };
 		7B60D0B028782CF70037E888 /* ScheduleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B60D0AF28782CF70037E888 /* ScheduleView.swift */; };
 		7B60D0B228782D0C0037E888 /* PlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B60D0B128782D0C0037E888 /* PlayerView.swift */; };
+		7B60D0B628782F750037E888 /* DummyEvents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B60D0B528782F750037E888 /* DummyEvents.swift */; };
+		7B60D0B828782F8A0037E888 /* DummySchedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B60D0B728782F8A0037E888 /* DummySchedule.swift */; };
+		7B60D0BB28782FAC0037E888 /* StubEPGService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B60D0BA28782FAC0037E888 /* StubEPGService.swift */; };
 		7BCB2586287336CD002B04F3 /* MiniSteamingAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BCB2585287336CD002B04F3 /* MiniSteamingAppApp.swift */; };
 		7BCB2588287336CD002B04F3 /* EventsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BCB2587287336CD002B04F3 /* EventsView.swift */; };
 		7BCB258A287336CE002B04F3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7BCB2589287336CE002B04F3 /* Assets.xcassets */; };
@@ -80,6 +83,9 @@
 		7B60D0AD28782BF20037E888 /* CardContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardContentView.swift; sourceTree = "<group>"; };
 		7B60D0AF28782CF70037E888 /* ScheduleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleView.swift; sourceTree = "<group>"; };
 		7B60D0B128782D0C0037E888 /* PlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerView.swift; sourceTree = "<group>"; };
+		7B60D0B528782F750037E888 /* DummyEvents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DummyEvents.swift; sourceTree = "<group>"; };
+		7B60D0B728782F8A0037E888 /* DummySchedule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DummySchedule.swift; sourceTree = "<group>"; };
+		7B60D0BA28782FAC0037E888 /* StubEPGService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StubEPGService.swift; sourceTree = "<group>"; };
 		7BCB2582287336CD002B04F3 /* MiniSteamingApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MiniSteamingApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7BCB2585287336CD002B04F3 /* MiniSteamingAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiniSteamingAppApp.swift; sourceTree = "<group>"; };
 		7BCB2587287336CD002B04F3 /* EventsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsView.swift; sourceTree = "<group>"; };
@@ -164,6 +170,23 @@
 			path = Localizable;
 			sourceTree = "<group>";
 		};
+		7B60D0B428782F590037E888 /* Dummy */ = {
+			isa = PBXGroup;
+			children = (
+				7B60D0B528782F750037E888 /* DummyEvents.swift */,
+				7B60D0B728782F8A0037E888 /* DummySchedule.swift */,
+			);
+			path = Dummy;
+			sourceTree = "<group>";
+		};
+		7B60D0B928782F9B0037E888 /* Stubs */ = {
+			isa = PBXGroup;
+			children = (
+				7B60D0BA28782FAC0037E888 /* StubEPGService.swift */,
+			);
+			path = Stubs;
+			sourceTree = "<group>";
+		};
 		7BCB2579287336CD002B04F3 = {
 			isa = PBXGroup;
 			children = (
@@ -208,6 +231,8 @@
 		7BCB2595287336CE002B04F3 /* MiniSteamingAppTests */ = {
 			isa = PBXGroup;
 			children = (
+				7B60D0B928782F9B0037E888 /* Stubs */,
+				7B60D0B428782F590037E888 /* Dummy */,
 				7BCB2596287336CE002B04F3 /* MiniSteamingAppTests.swift */,
 			);
 			path = MiniSteamingAppTests;
@@ -531,6 +556,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				7BCB2597287336CE002B04F3 /* MiniSteamingAppTests.swift in Sources */,
+				7B60D0B628782F750037E888 /* DummyEvents.swift in Sources */,
+				7B60D0BB28782FAC0037E888 /* StubEPGService.swift in Sources */,
+				7B60D0B828782F8A0037E888 /* DummySchedule.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
