@@ -20,6 +20,7 @@
 		7B60D09E2878297D0037E888 /* DateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B60D09D2878297D0037E888 /* DateFormatter.swift */; };
 		7B60D0A0287829940037E888 /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B60D09F287829940037E888 /* Date+Extension.swift */; };
 		7B60D0A2287829AC0037E888 /* Calendar+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B60D0A1287829AC0037E888 /* Calendar+Extension.swift */; };
+		7B60D0A628782A510037E888 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B60D0A528782A510037E888 /* Event.swift */; };
 		7BCB2586287336CD002B04F3 /* MiniSteamingAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BCB2585287336CD002B04F3 /* MiniSteamingAppApp.swift */; };
 		7BCB2588287336CD002B04F3 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BCB2587287336CD002B04F3 /* ContentView.swift */; };
 		7BCB258A287336CE002B04F3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7BCB2589287336CE002B04F3 /* Assets.xcassets */; };
@@ -28,9 +29,9 @@
 		7BCB25A1287336CE002B04F3 /* MiniSteamingAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BCB25A0287336CE002B04F3 /* MiniSteamingAppUITests.swift */; };
 		7BCB25A3287336CE002B04F3 /* MiniSteamingAppUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BCB25A2287336CE002B04F3 /* MiniSteamingAppUITestsLaunchTests.swift */; };
 		7BCB25B7287348A7002B04F3 /* VideoVIewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BCB25B6287348A7002B04F3 /* VideoVIewModel.swift */; };
-		7BCB25B9287348BD002B04F3 /* VideoService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BCB25B8287348BD002B04F3 /* VideoService.swift */; };
+		7BCB25B9287348BD002B04F3 /* EPGServiceImplementation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BCB25B8287348BD002B04F3 /* EPGServiceImplementation.swift */; };
 		7BCB25BB287349B9002B04F3 /* Video.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BCB25BA287349B9002B04F3 /* Video.swift */; };
-		7BCB25BD28734A51002B04F3 /* ScheduleAsset.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BCB25BC28734A51002B04F3 /* ScheduleAsset.swift */; };
+		7BCB25BD28734A51002B04F3 /* Schedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BCB25BC28734A51002B04F3 /* Schedule.swift */; };
 		AC0CE30A5CC4DB284097CCA8 /* libPods-MiniSteamingAppUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 34038031F3C137BD2D8D8C56 /* libPods-MiniSteamingAppUITests.a */; };
 /* End PBXBuildFile section */
 
@@ -66,6 +67,7 @@
 		7B60D09D2878297D0037E888 /* DateFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatter.swift; sourceTree = "<group>"; };
 		7B60D09F287829940037E888 /* Date+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
 		7B60D0A1287829AC0037E888 /* Calendar+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Calendar+Extension.swift"; sourceTree = "<group>"; };
+		7B60D0A528782A510037E888 /* Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
 		7BCB2582287336CD002B04F3 /* MiniSteamingApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MiniSteamingApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7BCB2585287336CD002B04F3 /* MiniSteamingAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiniSteamingAppApp.swift; sourceTree = "<group>"; };
 		7BCB2587287336CD002B04F3 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -77,9 +79,9 @@
 		7BCB25A0287336CE002B04F3 /* MiniSteamingAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiniSteamingAppUITests.swift; sourceTree = "<group>"; };
 		7BCB25A2287336CE002B04F3 /* MiniSteamingAppUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiniSteamingAppUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		7BCB25B6287348A7002B04F3 /* VideoVIewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoVIewModel.swift; sourceTree = "<group>"; };
-		7BCB25B8287348BD002B04F3 /* VideoService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoService.swift; sourceTree = "<group>"; };
+		7BCB25B8287348BD002B04F3 /* EPGServiceImplementation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EPGServiceImplementation.swift; sourceTree = "<group>"; };
 		7BCB25BA287349B9002B04F3 /* Video.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Video.swift; sourceTree = "<group>"; };
-		7BCB25BC28734A51002B04F3 /* ScheduleAsset.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleAsset.swift; sourceTree = "<group>"; };
+		7BCB25BC28734A51002B04F3 /* Schedule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Schedule.swift; sourceTree = "<group>"; };
 		84015120C071F56D113549D2 /* Pods-MiniSteamingApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MiniSteamingApp.debug.xcconfig"; path = "Target Support Files/Pods-MiniSteamingApp/Pods-MiniSteamingApp.debug.xcconfig"; sourceTree = "<group>"; };
 		86E69EFF7055B63813A58CDB /* Pods-MiniSteamingAppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MiniSteamingAppTests.debug.xcconfig"; path = "Target Support Files/Pods-MiniSteamingAppTests/Pods-MiniSteamingAppTests.debug.xcconfig"; sourceTree = "<group>"; };
 		99555A979B004588B8B386C5 /* Pods-MiniSteamingAppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MiniSteamingAppTests.release.xcconfig"; path = "Target Support Files/Pods-MiniSteamingAppTests/Pods-MiniSteamingAppTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -240,7 +242,8 @@
 			isa = PBXGroup;
 			children = (
 				7BCB25BA287349B9002B04F3 /* Video.swift */,
-				7BCB25BC28734A51002B04F3 /* ScheduleAsset.swift */,
+				7BCB25BC28734A51002B04F3 /* Schedule.swift */,
+				7B60D0A528782A510037E888 /* Event.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -248,7 +251,7 @@
 		7BCB25B528734807002B04F3 /* Service */ = {
 			isa = PBXGroup;
 			children = (
-				7BCB25B8287348BD002B04F3 /* VideoService.swift */,
+				7BCB25B8287348BD002B04F3 /* EPGServiceImplementation.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -483,12 +486,13 @@
 				7B60D08E287827E60037E888 /* Resource.swift in Sources */,
 				7BCB2588287336CD002B04F3 /* ContentView.swift in Sources */,
 				7B60D0942878282A0037E888 /* Publisher+Extension.swift in Sources */,
-				7BCB25BD28734A51002B04F3 /* ScheduleAsset.swift in Sources */,
+				7BCB25BD28734A51002B04F3 /* Schedule.swift in Sources */,
 				7B60D0A2287829AC0037E888 /* Calendar+Extension.swift in Sources */,
 				7B60D0A0287829940037E888 /* Date+Extension.swift in Sources */,
 				7B60D090287827FE0037E888 /* HttpMethod.swift in Sources */,
+				7B60D0A628782A510037E888 /* Event.swift in Sources */,
 				7B60D092287828160037E888 /* URLRequest+Extension.swift in Sources */,
-				7BCB25B9287348BD002B04F3 /* VideoService.swift in Sources */,
+				7BCB25B9287348BD002B04F3 /* EPGServiceImplementation.swift in Sources */,
 				7BCB25B7287348A7002B04F3 /* VideoVIewModel.swift in Sources */,
 				7BCB2586287336CD002B04F3 /* MiniSteamingAppApp.swift in Sources */,
 				7B60D09E2878297D0037E888 /* DateFormatter.swift in Sources */,

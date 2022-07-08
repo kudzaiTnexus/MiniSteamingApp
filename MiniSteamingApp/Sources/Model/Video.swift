@@ -7,18 +7,10 @@
 
 import Foundation
 
-typealias Videos = [Video]
-
-// MARK: - Video
-struct Video: Codable {
-    let id, title, subtitle, date: String
-    let imageURL: String
-    let videoURL: String
-
-    enum CodingKeys: String, CodingKey {
-        case id, title, subtitle, date
-        case imageURL = "imageUrl"
-        case videoURL = "videoUrl"
-    }
+protocol Video: Identifiable {
+    var id: String { get }
+    var title: String { get }
+    var subtitle: String { get }
+    var startDate: Date? { get }
+    var imageURL: String { get }
 }
-
