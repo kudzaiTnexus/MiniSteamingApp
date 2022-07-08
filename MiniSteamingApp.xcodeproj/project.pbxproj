@@ -33,13 +33,12 @@
 		7B60D0BD2878304D0037E888 /* DateExtensionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B60D0BC2878304D0037E888 /* DateExtensionTests.swift */; };
 		7B60D0BF2878308C0037E888 /* EPGViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B60D0BE2878308C0037E888 /* EPGViewModelTests.swift */; };
 		7B60D0C1287830C60037E888 /* PollingViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B60D0C0287830C60037E888 /* PollingViewModelTests.swift */; };
+		7B60D0C3287831A10037E888 /* XCUIElement+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B60D0C2287831A10037E888 /* XCUIElement+Extension.swift */; };
 		7BCB2586287336CD002B04F3 /* MiniSteamingAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BCB2585287336CD002B04F3 /* MiniSteamingAppApp.swift */; };
 		7BCB2588287336CD002B04F3 /* EventsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BCB2587287336CD002B04F3 /* EventsView.swift */; };
 		7BCB258A287336CE002B04F3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7BCB2589287336CE002B04F3 /* Assets.xcassets */; };
 		7BCB258D287336CE002B04F3 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7BCB258C287336CE002B04F3 /* Preview Assets.xcassets */; };
-		7BCB2597287336CE002B04F3 /* MiniSteamingAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BCB2596287336CE002B04F3 /* MiniSteamingAppTests.swift */; };
 		7BCB25A1287336CE002B04F3 /* MiniSteamingAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BCB25A0287336CE002B04F3 /* MiniSteamingAppUITests.swift */; };
-		7BCB25A3287336CE002B04F3 /* MiniSteamingAppUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BCB25A2287336CE002B04F3 /* MiniSteamingAppUITestsLaunchTests.swift */; };
 		7BCB25B7287348A7002B04F3 /* EPGViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BCB25B6287348A7002B04F3 /* EPGViewModel.swift */; };
 		7BCB25B9287348BD002B04F3 /* EPGServiceImplementation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BCB25B8287348BD002B04F3 /* EPGServiceImplementation.swift */; };
 		7BCB25BB287349B9002B04F3 /* Video.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BCB25BA287349B9002B04F3 /* Video.swift */; };
@@ -92,16 +91,15 @@
 		7B60D0BC2878304D0037E888 /* DateExtensionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtensionTests.swift; sourceTree = "<group>"; };
 		7B60D0BE2878308C0037E888 /* EPGViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EPGViewModelTests.swift; sourceTree = "<group>"; };
 		7B60D0C0287830C60037E888 /* PollingViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PollingViewModelTests.swift; sourceTree = "<group>"; };
+		7B60D0C2287831A10037E888 /* XCUIElement+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCUIElement+Extension.swift"; sourceTree = "<group>"; };
 		7BCB2582287336CD002B04F3 /* MiniSteamingApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MiniSteamingApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7BCB2585287336CD002B04F3 /* MiniSteamingAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiniSteamingAppApp.swift; sourceTree = "<group>"; };
 		7BCB2587287336CD002B04F3 /* EventsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsView.swift; sourceTree = "<group>"; };
 		7BCB2589287336CE002B04F3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7BCB258C287336CE002B04F3 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		7BCB2592287336CE002B04F3 /* MiniSteamingAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MiniSteamingAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		7BCB2596287336CE002B04F3 /* MiniSteamingAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiniSteamingAppTests.swift; sourceTree = "<group>"; };
 		7BCB259C287336CE002B04F3 /* MiniSteamingAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MiniSteamingAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7BCB25A0287336CE002B04F3 /* MiniSteamingAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiniSteamingAppUITests.swift; sourceTree = "<group>"; };
-		7BCB25A2287336CE002B04F3 /* MiniSteamingAppUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiniSteamingAppUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		7BCB25B6287348A7002B04F3 /* EPGViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EPGViewModel.swift; sourceTree = "<group>"; };
 		7BCB25B8287348BD002B04F3 /* EPGServiceImplementation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EPGServiceImplementation.swift; sourceTree = "<group>"; };
 		7BCB25BA287349B9002B04F3 /* Video.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Video.swift; sourceTree = "<group>"; };
@@ -239,7 +237,6 @@
 			children = (
 				7B60D0B928782F9B0037E888 /* Stubs */,
 				7B60D0B428782F590037E888 /* Dummy */,
-				7BCB2596287336CE002B04F3 /* MiniSteamingAppTests.swift */,
 				7B60D0BE2878308C0037E888 /* EPGViewModelTests.swift */,
 				7B60D0BC2878304D0037E888 /* DateExtensionTests.swift */,
 				7B60D0C0287830C60037E888 /* PollingViewModelTests.swift */,
@@ -251,7 +248,7 @@
 			isa = PBXGroup;
 			children = (
 				7BCB25A0287336CE002B04F3 /* MiniSteamingAppUITests.swift */,
-				7BCB25A2287336CE002B04F3 /* MiniSteamingAppUITestsLaunchTests.swift */,
+				7B60D0C2287831A10037E888 /* XCUIElement+Extension.swift */,
 			);
 			path = MiniSteamingAppUITests;
 			sourceTree = "<group>";
@@ -564,7 +561,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7BCB2597287336CE002B04F3 /* MiniSteamingAppTests.swift in Sources */,
 				7B60D0BF2878308C0037E888 /* EPGViewModelTests.swift in Sources */,
 				7B60D0B628782F750037E888 /* DummyEvents.swift in Sources */,
 				7B60D0BB28782FAC0037E888 /* StubEPGService.swift in Sources */,
@@ -578,8 +574,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7B60D0C3287831A10037E888 /* XCUIElement+Extension.swift in Sources */,
 				7BCB25A1287336CE002B04F3 /* MiniSteamingAppUITests.swift in Sources */,
-				7BCB25A3287336CE002B04F3 /* MiniSteamingAppUITestsLaunchTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
