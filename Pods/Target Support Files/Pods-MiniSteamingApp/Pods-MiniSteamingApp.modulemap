@@ -1,0 +1,6 @@
+module Pods_MiniSteamingApp {
+  umbrella header "Pods-MiniSteamingApp-umbrella.h"
+
+  export *
+  module * { export * }
+}

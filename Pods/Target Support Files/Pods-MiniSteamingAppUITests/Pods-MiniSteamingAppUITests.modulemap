@@ -1,0 +1,6 @@
+module Pods_MiniSteamingAppUITests {
+  umbrella header "Pods-MiniSteamingAppUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}
