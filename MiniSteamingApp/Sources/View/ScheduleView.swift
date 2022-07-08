@@ -52,7 +52,7 @@ struct ScheduleView: View {
             switch viewModel.viewState {
             case .loading, .ready:
                 loadedView.overlay(loadingView)
-                    .animation(.easeInOut(duration: 0.5))
+                    .animation(.easeIn, value: 0.5)
                     .transition(.opacity)
             case .failure:
                 errorView
