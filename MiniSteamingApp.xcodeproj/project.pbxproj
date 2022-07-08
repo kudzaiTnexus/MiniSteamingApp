@@ -16,6 +16,10 @@
 		7B60D0942878282A0037E888 /* Publisher+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B60D0932878282A0037E888 /* Publisher+Extension.swift */; };
 		7B60D098287828F80037E888 /* Localizable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B60D097287828F80037E888 /* Localizable.swift */; };
 		7B60D09A2878291C0037E888 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7B60D0992878291C0037E888 /* Localizable.strings */; };
+		7B60D09C2878296B0037E888 /* ViewCurrentState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B60D09B2878296B0037E888 /* ViewCurrentState.swift */; };
+		7B60D09E2878297D0037E888 /* DateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B60D09D2878297D0037E888 /* DateFormatter.swift */; };
+		7B60D0A0287829940037E888 /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B60D09F287829940037E888 /* Date+Extension.swift */; };
+		7B60D0A2287829AC0037E888 /* Calendar+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B60D0A1287829AC0037E888 /* Calendar+Extension.swift */; };
 		7BCB2586287336CD002B04F3 /* MiniSteamingAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BCB2585287336CD002B04F3 /* MiniSteamingAppApp.swift */; };
 		7BCB2588287336CD002B04F3 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BCB2587287336CD002B04F3 /* ContentView.swift */; };
 		7BCB258A287336CE002B04F3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7BCB2589287336CE002B04F3 /* Assets.xcassets */; };
@@ -58,6 +62,10 @@
 		7B60D0932878282A0037E888 /* Publisher+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Publisher+Extension.swift"; sourceTree = "<group>"; };
 		7B60D097287828F80037E888 /* Localizable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Localizable.swift; sourceTree = "<group>"; };
 		7B60D0992878291C0037E888 /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
+		7B60D09B2878296B0037E888 /* ViewCurrentState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewCurrentState.swift; sourceTree = "<group>"; };
+		7B60D09D2878297D0037E888 /* DateFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatter.swift; sourceTree = "<group>"; };
+		7B60D09F287829940037E888 /* Date+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
+		7B60D0A1287829AC0037E888 /* Calendar+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Calendar+Extension.swift"; sourceTree = "<group>"; };
 		7BCB2582287336CD002B04F3 /* MiniSteamingApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MiniSteamingApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7BCB2585287336CD002B04F3 /* MiniSteamingAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiniSteamingAppApp.swift; sourceTree = "<group>"; };
 		7BCB2587287336CD002B04F3 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -113,6 +121,10 @@
 			children = (
 				7B60D096287828D50037E888 /* Localizable */,
 				7B60D095287828C60037E888 /* Service */,
+				7B60D09B2878296B0037E888 /* ViewCurrentState.swift */,
+				7B60D09D2878297D0037E888 /* DateFormatter.swift */,
+				7B60D09F287829940037E888 /* Date+Extension.swift */,
+				7B60D0A1287829AC0037E888 /* Calendar+Extension.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -472,11 +484,15 @@
 				7BCB2588287336CD002B04F3 /* ContentView.swift in Sources */,
 				7B60D0942878282A0037E888 /* Publisher+Extension.swift in Sources */,
 				7BCB25BD28734A51002B04F3 /* ScheduleAsset.swift in Sources */,
+				7B60D0A2287829AC0037E888 /* Calendar+Extension.swift in Sources */,
+				7B60D0A0287829940037E888 /* Date+Extension.swift in Sources */,
 				7B60D090287827FE0037E888 /* HttpMethod.swift in Sources */,
 				7B60D092287828160037E888 /* URLRequest+Extension.swift in Sources */,
 				7BCB25B9287348BD002B04F3 /* VideoService.swift in Sources */,
 				7BCB25B7287348A7002B04F3 /* VideoVIewModel.swift in Sources */,
 				7BCB2586287336CD002B04F3 /* MiniSteamingAppApp.swift in Sources */,
+				7B60D09E2878297D0037E888 /* DateFormatter.swift in Sources */,
+				7B60D09C2878296B0037E888 /* ViewCurrentState.swift in Sources */,
 				7B60D098287828F80037E888 /* Localizable.swift in Sources */,
 				7BCB25BB287349B9002B04F3 /* Video.swift in Sources */,
 			);
