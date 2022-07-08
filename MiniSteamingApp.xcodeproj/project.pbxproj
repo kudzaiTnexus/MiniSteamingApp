@@ -14,6 +14,8 @@
 		7B60D090287827FE0037E888 /* HttpMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B60D08F287827FE0037E888 /* HttpMethod.swift */; };
 		7B60D092287828160037E888 /* URLRequest+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B60D091287828160037E888 /* URLRequest+Extension.swift */; };
 		7B60D0942878282A0037E888 /* Publisher+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B60D0932878282A0037E888 /* Publisher+Extension.swift */; };
+		7B60D098287828F80037E888 /* Localizable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B60D097287828F80037E888 /* Localizable.swift */; };
+		7B60D09A2878291C0037E888 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7B60D0992878291C0037E888 /* Localizable.strings */; };
 		7BCB2586287336CD002B04F3 /* MiniSteamingAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BCB2585287336CD002B04F3 /* MiniSteamingAppApp.swift */; };
 		7BCB2588287336CD002B04F3 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BCB2587287336CD002B04F3 /* ContentView.swift */; };
 		7BCB258A287336CE002B04F3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7BCB2589287336CE002B04F3 /* Assets.xcassets */; };
@@ -54,6 +56,8 @@
 		7B60D08F287827FE0037E888 /* HttpMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpMethod.swift; sourceTree = "<group>"; };
 		7B60D091287828160037E888 /* URLRequest+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLRequest+Extension.swift"; sourceTree = "<group>"; };
 		7B60D0932878282A0037E888 /* Publisher+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Publisher+Extension.swift"; sourceTree = "<group>"; };
+		7B60D097287828F80037E888 /* Localizable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Localizable.swift; sourceTree = "<group>"; };
+		7B60D0992878291C0037E888 /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		7BCB2582287336CD002B04F3 /* MiniSteamingApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MiniSteamingApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7BCB2585287336CD002B04F3 /* MiniSteamingAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiniSteamingAppApp.swift; sourceTree = "<group>"; };
 		7BCB2587287336CD002B04F3 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -107,13 +111,31 @@
 		7B60D08A287827A70037E888 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				7B60D096287828D50037E888 /* Localizable */,
+				7B60D095287828C60037E888 /* Service */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		7B60D095287828C60037E888 /* Service */ = {
+			isa = PBXGroup;
+			children = (
 				7B60D08B287827D20037E888 /* NetworkServiceImplementation.swift */,
 				7B60D08D287827E60037E888 /* Resource.swift */,
 				7B60D08F287827FE0037E888 /* HttpMethod.swift */,
 				7B60D091287828160037E888 /* URLRequest+Extension.swift */,
 				7B60D0932878282A0037E888 /* Publisher+Extension.swift */,
 			);
-			path = Common;
+			path = Service;
+			sourceTree = "<group>";
+		};
+		7B60D096287828D50037E888 /* Localizable */ = {
+			isa = PBXGroup;
+			children = (
+				7B60D097287828F80037E888 /* Localizable.swift */,
+				7B60D0992878291C0037E888 /* Localizable.strings */,
+			);
+			path = Localizable;
 			sourceTree = "<group>";
 		};
 		7BCB2579287336CD002B04F3 = {
@@ -350,6 +372,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7BCB258D287336CE002B04F3 /* Preview Assets.xcassets in Resources */,
+				7B60D09A2878291C0037E888 /* Localizable.strings in Resources */,
 				7BCB258A287336CE002B04F3 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -454,6 +477,7 @@
 				7BCB25B9287348BD002B04F3 /* VideoService.swift in Sources */,
 				7BCB25B7287348A7002B04F3 /* VideoVIewModel.swift in Sources */,
 				7BCB2586287336CD002B04F3 /* MiniSteamingAppApp.swift in Sources */,
+				7B60D098287828F80037E888 /* Localizable.swift in Sources */,
 				7BCB25BB287349B9002B04F3 /* Video.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

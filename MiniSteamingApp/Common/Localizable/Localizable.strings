@@ -1,0 +1,13 @@
+/*
+  Localizable.strings
+  MiniSteamingApp
+
+  Created by KudzaisheMhou on 04/07/2022.
+  
+*/
+events.tab.title = "Events";
+schedule.tab.title = "Schedule";
+today = "Today";
+yesterday = "Yesterday";
+tommorow = "Tommorow";
+in.days.time = "In %@ days";
