@@ -32,6 +32,7 @@
 		7B60D0BB28782FAC0037E888 /* StubEPGService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B60D0BA28782FAC0037E888 /* StubEPGService.swift */; };
 		7B60D0BD2878304D0037E888 /* DateExtensionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B60D0BC2878304D0037E888 /* DateExtensionTests.swift */; };
 		7B60D0BF2878308C0037E888 /* EPGViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B60D0BE2878308C0037E888 /* EPGViewModelTests.swift */; };
+		7B60D0C1287830C60037E888 /* PollingViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B60D0C0287830C60037E888 /* PollingViewModelTests.swift */; };
 		7BCB2586287336CD002B04F3 /* MiniSteamingAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BCB2585287336CD002B04F3 /* MiniSteamingAppApp.swift */; };
 		7BCB2588287336CD002B04F3 /* EventsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BCB2587287336CD002B04F3 /* EventsView.swift */; };
 		7BCB258A287336CE002B04F3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7BCB2589287336CE002B04F3 /* Assets.xcassets */; };
@@ -90,6 +91,7 @@
 		7B60D0BA28782FAC0037E888 /* StubEPGService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StubEPGService.swift; sourceTree = "<group>"; };
 		7B60D0BC2878304D0037E888 /* DateExtensionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtensionTests.swift; sourceTree = "<group>"; };
 		7B60D0BE2878308C0037E888 /* EPGViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EPGViewModelTests.swift; sourceTree = "<group>"; };
+		7B60D0C0287830C60037E888 /* PollingViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PollingViewModelTests.swift; sourceTree = "<group>"; };
 		7BCB2582287336CD002B04F3 /* MiniSteamingApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MiniSteamingApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7BCB2585287336CD002B04F3 /* MiniSteamingAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiniSteamingAppApp.swift; sourceTree = "<group>"; };
 		7BCB2587287336CD002B04F3 /* EventsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsView.swift; sourceTree = "<group>"; };
@@ -240,6 +242,7 @@
 				7BCB2596287336CE002B04F3 /* MiniSteamingAppTests.swift */,
 				7B60D0BE2878308C0037E888 /* EPGViewModelTests.swift */,
 				7B60D0BC2878304D0037E888 /* DateExtensionTests.swift */,
+				7B60D0C0287830C60037E888 /* PollingViewModelTests.swift */,
 			);
 			path = MiniSteamingAppTests;
 			sourceTree = "<group>";
@@ -565,6 +568,7 @@
 				7B60D0BF2878308C0037E888 /* EPGViewModelTests.swift in Sources */,
 				7B60D0B628782F750037E888 /* DummyEvents.swift in Sources */,
 				7B60D0BB28782FAC0037E888 /* StubEPGService.swift in Sources */,
+				7B60D0C1287830C60037E888 /* PollingViewModelTests.swift in Sources */,
 				7B60D0BD2878304D0037E888 /* DateExtensionTests.swift in Sources */,
 				7B60D0B828782F8A0037E888 /* DummySchedule.swift in Sources */,
 			);
