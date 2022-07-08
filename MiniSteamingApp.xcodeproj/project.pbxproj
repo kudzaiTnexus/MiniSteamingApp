@@ -21,6 +21,7 @@
 		7B60D0A0287829940037E888 /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B60D09F287829940037E888 /* Date+Extension.swift */; };
 		7B60D0A2287829AC0037E888 /* Calendar+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B60D0A1287829AC0037E888 /* Calendar+Extension.swift */; };
 		7B60D0A628782A510037E888 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B60D0A528782A510037E888 /* Event.swift */; };
+		7B60D0A828782B210037E888 /* PollingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B60D0A728782B210037E888 /* PollingViewModel.swift */; };
 		7BCB2586287336CD002B04F3 /* MiniSteamingAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BCB2585287336CD002B04F3 /* MiniSteamingAppApp.swift */; };
 		7BCB2588287336CD002B04F3 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BCB2587287336CD002B04F3 /* ContentView.swift */; };
 		7BCB258A287336CE002B04F3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7BCB2589287336CE002B04F3 /* Assets.xcassets */; };
@@ -28,7 +29,7 @@
 		7BCB2597287336CE002B04F3 /* MiniSteamingAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BCB2596287336CE002B04F3 /* MiniSteamingAppTests.swift */; };
 		7BCB25A1287336CE002B04F3 /* MiniSteamingAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BCB25A0287336CE002B04F3 /* MiniSteamingAppUITests.swift */; };
 		7BCB25A3287336CE002B04F3 /* MiniSteamingAppUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BCB25A2287336CE002B04F3 /* MiniSteamingAppUITestsLaunchTests.swift */; };
-		7BCB25B7287348A7002B04F3 /* VideoVIewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BCB25B6287348A7002B04F3 /* VideoVIewModel.swift */; };
+		7BCB25B7287348A7002B04F3 /* EPGViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BCB25B6287348A7002B04F3 /* EPGViewModel.swift */; };
 		7BCB25B9287348BD002B04F3 /* EPGServiceImplementation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BCB25B8287348BD002B04F3 /* EPGServiceImplementation.swift */; };
 		7BCB25BB287349B9002B04F3 /* Video.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BCB25BA287349B9002B04F3 /* Video.swift */; };
 		7BCB25BD28734A51002B04F3 /* Schedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BCB25BC28734A51002B04F3 /* Schedule.swift */; };
@@ -68,6 +69,7 @@
 		7B60D09F287829940037E888 /* Date+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
 		7B60D0A1287829AC0037E888 /* Calendar+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Calendar+Extension.swift"; sourceTree = "<group>"; };
 		7B60D0A528782A510037E888 /* Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
+		7B60D0A728782B210037E888 /* PollingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PollingViewModel.swift; sourceTree = "<group>"; };
 		7BCB2582287336CD002B04F3 /* MiniSteamingApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MiniSteamingApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7BCB2585287336CD002B04F3 /* MiniSteamingAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiniSteamingAppApp.swift; sourceTree = "<group>"; };
 		7BCB2587287336CD002B04F3 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -78,7 +80,7 @@
 		7BCB259C287336CE002B04F3 /* MiniSteamingAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MiniSteamingAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7BCB25A0287336CE002B04F3 /* MiniSteamingAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiniSteamingAppUITests.swift; sourceTree = "<group>"; };
 		7BCB25A2287336CE002B04F3 /* MiniSteamingAppUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiniSteamingAppUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		7BCB25B6287348A7002B04F3 /* VideoVIewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoVIewModel.swift; sourceTree = "<group>"; };
+		7BCB25B6287348A7002B04F3 /* EPGViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EPGViewModel.swift; sourceTree = "<group>"; };
 		7BCB25B8287348BD002B04F3 /* EPGServiceImplementation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EPGServiceImplementation.swift; sourceTree = "<group>"; };
 		7BCB25BA287349B9002B04F3 /* Video.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Video.swift; sourceTree = "<group>"; };
 		7BCB25BC28734A51002B04F3 /* Schedule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Schedule.swift; sourceTree = "<group>"; };
@@ -233,7 +235,8 @@
 		7BCB25B3287347EA002B04F3 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				7BCB25B6287348A7002B04F3 /* VideoVIewModel.swift */,
+				7BCB25B6287348A7002B04F3 /* EPGViewModel.swift */,
+				7B60D0A728782B210037E888 /* PollingViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -493,9 +496,10 @@
 				7B60D0A628782A510037E888 /* Event.swift in Sources */,
 				7B60D092287828160037E888 /* URLRequest+Extension.swift in Sources */,
 				7BCB25B9287348BD002B04F3 /* EPGServiceImplementation.swift in Sources */,
-				7BCB25B7287348A7002B04F3 /* VideoVIewModel.swift in Sources */,
+				7BCB25B7287348A7002B04F3 /* EPGViewModel.swift in Sources */,
 				7BCB2586287336CD002B04F3 /* MiniSteamingAppApp.swift in Sources */,
 				7B60D09E2878297D0037E888 /* DateFormatter.swift in Sources */,
+				7B60D0A828782B210037E888 /* PollingViewModel.swift in Sources */,
 				7B60D09C2878296B0037E888 /* ViewCurrentState.swift in Sources */,
 				7B60D098287828F80037E888 /* Localizable.swift in Sources */,
 				7BCB25BB287349B9002B04F3 /* Video.swift in Sources */,
