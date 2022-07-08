@@ -26,7 +26,7 @@
 		7B60D0AC28782BD70037E888 /* ActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B60D0AB28782BD70037E888 /* ActivityIndicator.swift */; };
 		7B60D0AE28782BF20037E888 /* CardContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B60D0AD28782BF20037E888 /* CardContentView.swift */; };
 		7BCB2586287336CD002B04F3 /* MiniSteamingAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BCB2585287336CD002B04F3 /* MiniSteamingAppApp.swift */; };
-		7BCB2588287336CD002B04F3 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BCB2587287336CD002B04F3 /* ContentView.swift */; };
+		7BCB2588287336CD002B04F3 /* EventsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BCB2587287336CD002B04F3 /* EventsView.swift */; };
 		7BCB258A287336CE002B04F3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7BCB2589287336CE002B04F3 /* Assets.xcassets */; };
 		7BCB258D287336CE002B04F3 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7BCB258C287336CE002B04F3 /* Preview Assets.xcassets */; };
 		7BCB2597287336CE002B04F3 /* MiniSteamingAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BCB2596287336CE002B04F3 /* MiniSteamingAppTests.swift */; };
@@ -78,7 +78,7 @@
 		7B60D0AD28782BF20037E888 /* CardContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardContentView.swift; sourceTree = "<group>"; };
 		7BCB2582287336CD002B04F3 /* MiniSteamingApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MiniSteamingApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7BCB2585287336CD002B04F3 /* MiniSteamingAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiniSteamingAppApp.swift; sourceTree = "<group>"; };
-		7BCB2587287336CD002B04F3 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		7BCB2587287336CD002B04F3 /* EventsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsView.swift; sourceTree = "<group>"; };
 		7BCB2589287336CE002B04F3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7BCB258C287336CE002B04F3 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		7BCB2592287336CE002B04F3 /* MiniSteamingAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MiniSteamingAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -233,7 +233,7 @@
 			isa = PBXGroup;
 			children = (
 				7BCB2585287336CD002B04F3 /* MiniSteamingAppApp.swift */,
-				7BCB2587287336CD002B04F3 /* ContentView.swift */,
+				7BCB2587287336CD002B04F3 /* EventsView.swift */,
 				7B60D0A928782B860037E888 /* ErrorView.swift */,
 				7B60D0AB28782BD70037E888 /* ActivityIndicator.swift */,
 				7B60D0AD28782BF20037E888 /* CardContentView.swift */,
@@ -497,7 +497,7 @@
 				7B60D08C287827D20037E888 /* NetworkServiceImplementation.swift in Sources */,
 				7B60D08E287827E60037E888 /* Resource.swift in Sources */,
 				7B60D0AA28782B860037E888 /* ErrorView.swift in Sources */,
-				7BCB2588287336CD002B04F3 /* ContentView.swift in Sources */,
+				7BCB2588287336CD002B04F3 /* EventsView.swift in Sources */,
 				7B60D0942878282A0037E888 /* Publisher+Extension.swift in Sources */,
 				7BCB25BD28734A51002B04F3 /* Schedule.swift in Sources */,
 				7B60D0A2287829AC0037E888 /* Calendar+Extension.swift in Sources */,
