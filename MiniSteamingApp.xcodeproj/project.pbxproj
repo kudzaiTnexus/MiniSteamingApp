@@ -22,6 +22,7 @@
 		7B60D0A2287829AC0037E888 /* Calendar+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B60D0A1287829AC0037E888 /* Calendar+Extension.swift */; };
 		7B60D0A628782A510037E888 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B60D0A528782A510037E888 /* Event.swift */; };
 		7B60D0A828782B210037E888 /* PollingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B60D0A728782B210037E888 /* PollingViewModel.swift */; };
+		7B60D0AA28782B860037E888 /* ErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B60D0A928782B860037E888 /* ErrorView.swift */; };
 		7BCB2586287336CD002B04F3 /* MiniSteamingAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BCB2585287336CD002B04F3 /* MiniSteamingAppApp.swift */; };
 		7BCB2588287336CD002B04F3 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BCB2587287336CD002B04F3 /* ContentView.swift */; };
 		7BCB258A287336CE002B04F3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7BCB2589287336CE002B04F3 /* Assets.xcassets */; };
@@ -70,6 +71,7 @@
 		7B60D0A1287829AC0037E888 /* Calendar+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Calendar+Extension.swift"; sourceTree = "<group>"; };
 		7B60D0A528782A510037E888 /* Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
 		7B60D0A728782B210037E888 /* PollingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PollingViewModel.swift; sourceTree = "<group>"; };
+		7B60D0A928782B860037E888 /* ErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorView.swift; sourceTree = "<group>"; };
 		7BCB2582287336CD002B04F3 /* MiniSteamingApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MiniSteamingApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7BCB2585287336CD002B04F3 /* MiniSteamingAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiniSteamingAppApp.swift; sourceTree = "<group>"; };
 		7BCB2587287336CD002B04F3 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -228,6 +230,7 @@
 			children = (
 				7BCB2585287336CD002B04F3 /* MiniSteamingAppApp.swift */,
 				7BCB2587287336CD002B04F3 /* ContentView.swift */,
+				7B60D0A928782B860037E888 /* ErrorView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -487,6 +490,7 @@
 			files = (
 				7B60D08C287827D20037E888 /* NetworkServiceImplementation.swift in Sources */,
 				7B60D08E287827E60037E888 /* Resource.swift in Sources */,
+				7B60D0AA28782B860037E888 /* ErrorView.swift in Sources */,
 				7BCB2588287336CD002B04F3 /* ContentView.swift in Sources */,
 				7B60D0942878282A0037E888 /* Publisher+Extension.swift in Sources */,
 				7BCB25BD28734A51002B04F3 /* Schedule.swift in Sources */,
