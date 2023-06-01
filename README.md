@@ -1,8 +1,45 @@
-protocol LegalEntityFactory {
-    associatedtype EntityType: ListLegalEntity
-    func makeEntity(name: String, enabled: Bool, entityId: String) -> EntityType
+class BaseSearchableEntitiesViewModel: ObservableObject {}
+
+final class AnySearchableEntitiesViewModel: BaseSearchableEntitiesViewModel {
+    private let box: _AnySearchableEntitiesViewModelBox
+    
+   init<T: SearchableEntitiesViewModel>(_ viewModel: T) {
+        box = _AnySearchableEntitiesViewModelBoxBase(viewModel)
+    }
+    
+   var entities: [Any] {
+        box.entities
+    }
+    // Add the rest of the properties and methods here, following the same pattern
 }
 
+private class _AnySearchableEntitiesViewModelBox {
+    var entities: [Any] {
+        fatalError("Must override")
+    }
+    // Add the rest of the properties and methods here, following the same pattern
+}
+
+private class _AnySearchableEntitiesViewModelBoxBase<T: SearchableEntitiesViewModel>: _AnySearchableEntitiesViewModelBox {
+    private let base: T
+    
+   init(_ base: T) {
+        self.base = base
+    }
+    
+   override var entities: [Any] {
+        base.entities
+    }
+    // Add the rest of the properties and methods here, following the same pattern
+}
+
+@ObservedObject var searchableEntitiesViewModel: BaseSearchableEntitiesViewModel
+
+if  selectedTabIndex.wrappedValue == 1 {
+    self.searchableEntitiesViewModel = AnySearchableEntitiesViewModel(SearchableEntitiesViewModel<OrderListLegalEntity, OrderListLegalEntityFactory>(selectedEntities: viewModel.selectedEntities, entityFactory: OrderListLegalEntityFactory()))
+} else {
+    self.searchableEntitiesViewModel = AnySearchableEntitiesViewModel(SearchableEntitiesViewModel<DealListLegalEntity, DealListLegalEntityFactory>(selectedEntities: dealsViewModel.selectedEntities, entityFactory: DealListLegalEntityFactory()))
+}
 
 
 
