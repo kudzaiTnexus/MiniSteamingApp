@@ -1,3 +1,46 @@
+protocol ListLegalEntity: Identifiable, Equatable {
+    associatedtype Item
+
+   var id: UUID { get }
+    var name: String { get }
+    var entityId: String { get }
+    var enabled: Bool { get }
+    var items: [Item] { get }
+
+   init(name: String, enabled: Bool, entityId: String, items: [Item])
+}
+
+struct OrderListLegalEntity: ListLegalEntity {
+    typealias Item = OrderCellModel
+    
+   var id = UUID()
+    var name: String
+    var entityId: String
+    var enabled: Bool
+    var items: [OrderCellModel]
+    
+   static func == (lhs: OrderListLegalEntity, rhs: OrderListLegalEntity) -> Bool {
+        lhs.name == rhs.name && lhs.entityId == rhs.entityId
+    }
+}
+
+struct DealListLegalEntity: ListLegalEntity {
+    typealias Item = DealListItem
+    
+   var id = UUID()
+    var name: String
+    var entityId: String
+    var enabled: Bool
+    var items: [DealListItem]
+    
+   static func == (lhs: DealListLegalEntity, rhs: DealListLegalEntity) -> Bool {
+         lhs.name == rhs.name && lhs.entityId == rhs.entityId
+    }
+}
+
+
+
+
 # MiniSteamingApp
 
      struct Album: Identifiable{
