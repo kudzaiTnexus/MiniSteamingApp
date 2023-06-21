@@ -577,19 +577,31 @@ if  selectedTabIndex.wrappedValue == 1 {
     }
 }
 
-struct Deal: Codable {
-    let dealID, dealRefID, clientName: String?
-    let boughtCurrencyValue, soldCurrencyValue, dealRate: Double?
-    let valueDate, tradeDate, clientReference, boughtCurrencyCode: String?
-    let soldCurrencyCode: String?
-    let forwardPoints: Double?
-    let status: String?
-    let errorList: [ErrorList]?
+public class FxHomeViewController: FXViewController {
     
-    enum CodingKeys: String, CodingKey {
-        case dealID = "dealId"
-        case dealRefID = "dealRefId"
-        case clientName, boughtCurrencyValue, soldCurrencyValue, dealRate, valueDate, tradeDate, clientReference, boughtCurrencyCode, soldCurrencyCode
-        case forwardPoints, status, errorList
+    public override func viewDidLoad() {
+        super.viewDidLoad()
+
+        // Create a UIHostingController with ContentView as its root view
+        let hostingController = UIHostingController(rootView: FxHomeView())
+
+        // Make sure to call this before adding the child view controller's view as a subview
+        addChild(hostingController)
+
+        // Add the SwiftUI view to the view controller's view hierarchy
+        let hostingView = hostingController.view!
+        hostingView.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(hostingView)
+
+        // Set constraints to make the hosting view fill the entire view controller
+        NSLayoutConstraint.activate([
+            hostingView.topAnchor.constraint(equalTo: view.topAnchor),
+            hostingView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            hostingView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            hostingView.trailingAnchor.constraint(equalTo: view.trailingAnchor)
+        ])
+
+        // Make sure to call this after adding the child view controller's view as a subview
+        hostingController.didMove(toParent: self)
     }
 }
