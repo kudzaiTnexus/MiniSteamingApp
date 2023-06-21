@@ -576,3 +576,20 @@ if  selectedTabIndex.wrappedValue == 1 {
         }
     }
 }
+
+struct Deal: Codable {
+    let dealID, dealRefID, clientName: String?
+    let boughtCurrencyValue, soldCurrencyValue, dealRate: Double?
+    let valueDate, tradeDate, clientReference, boughtCurrencyCode: String?
+    let soldCurrencyCode: String?
+    let forwardPoints: Double?
+    let status: String?
+    let errorList: [ErrorList]?
+    
+    enum CodingKeys: String, CodingKey {
+        case dealID = "dealId"
+        case dealRefID = "dealRefId"
+        case clientName, boughtCurrencyValue, soldCurrencyValue, dealRate, valueDate, tradeDate, clientReference, boughtCurrencyCode, soldCurrencyCode
+        case forwardPoints, status, errorList
+    }
+}
