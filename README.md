@@ -605,3 +605,212 @@ public class FxHomeViewController: FXViewController {
         hostingController.didMove(toParent: self)
     }
 }
+
+
+import Foundation
+import SwiftUI
+
+@available(iOS 16.0, *)
+public struct HalfModal16: View {
+    @State private var showingCredits = false
+    
+    @State private var active = false
+    @State private var failed = false
+    @State private var matured = false
+    @State private var cancelled = false
+    @State private var reversed = false
+    
+    @State private var sortByValueDate = false
+    
+    @State private var deals: [Deal]  = [
+        Deal(dealID: "1", dealRefID: "Ref1", clientName: "Client1", boughtCurrencyValue: 100.0, soldCurrencyValue: 90.0, dealRate: 1.1, valueDate: "2023-06-21T00:00:00Z", tradeDate: "2023-06-21T00:00:00Z", clientReference: "Ref1", boughtCurrencyCode: "USD", soldCurrencyCode: "EUR", forwardPoints: 1.0, status: "Active"),
+        Deal(dealID: "2", dealRefID: "Ref2", clientName: "Client2", boughtCurrencyValue: 200.0, soldCurrencyValue: 180.0, dealRate: 1.1, valueDate: "2023-06-22T00:00:00Z", tradeDate: "2023-06-22T00:00:00Z", clientReference: "Ref2", boughtCurrencyCode: "USD", soldCurrencyCode: "EUR", forwardPoints: 2.0, status: "Failed"),
+        Deal(dealID: "3", dealRefID: "Ref3", clientName: "Client3", boughtCurrencyValue: 300.0, soldCurrencyValue: 270.0, dealRate: 1.1, valueDate: "2023-06-23T00:00:00Z", tradeDate: "2023-06-23T00:00:00Z", clientReference: "Ref3", boughtCurrencyCode: "USD", soldCurrencyCode: "EUR", forwardPoints: 3.0, status: "Cancelled"),
+        Deal(dealID: "4", dealRefID: "Ref4", clientName: "Client4", boughtCurrencyValue: 100.0, soldCurrencyValue: 90.0, dealRate: 1.1, valueDate: "2023-06-24T00:00:00Z", tradeDate: "2023-06-21T00:00:00Z", clientReference: "Ref4", boughtCurrencyCode: "USD", soldCurrencyCode: "EUR", forwardPoints: 1.0, status: "Active"),
+        Deal(dealID: "5", dealRefID: "Ref5", clientName: "Client5", boughtCurrencyValue: 200.0, soldCurrencyValue: 180.0, dealRate: 1.1, valueDate: "2023-06-25T00:00:00Z", tradeDate: "2023-06-22T00:00:00Z", clientReference: "Ref5", boughtCurrencyCode: "USD", soldCurrencyCode: "EUR", forwardPoints: 2.0, status: "Matured"),
+        Deal(dealID: "6", dealRefID: "Ref6", clientName: "Client6", boughtCurrencyValue: 300.0, soldCurrencyValue: 270.0, dealRate: 1.1, valueDate: "2023-06-26T00:00:00Z", tradeDate: "2023-06-23T00:00:00Z", clientReference: "Ref6", boughtCurrencyCode: "USD", soldCurrencyCode: "EUR", forwardPoints: 3.0, status: "Reversed"),
+        Deal(dealID: "7", dealRefID: "Ref7", clientName: "Client7", boughtCurrencyValue: 400.0, soldCurrencyValue: 360.0, dealRate: 1.1, valueDate: "2023-06-27T00:00:00Z", tradeDate: "2023-06-24T00:00:00Z", clientReference: "Ref7", boughtCurrencyCode: "USD", soldCurrencyCode: "EUR", forwardPoints: 4.0, status: "Active"),
+        Deal(dealID: "8", dealRefID: "Ref8", clientName: "Client8", boughtCurrencyValue: 500.0, soldCurrencyValue: 450.0, dealRate: 1.1, valueDate: "2023-06-28T00:00:00Z", tradeDate: "2023-06-25T00:00:00Z", clientReference: "Ref8", boughtCurrencyCode: "USD", soldCurrencyCode: "EUR", forwardPoints: 5.0, status: "Failed"),
+        Deal(dealID: "9", dealRefID: "Ref9", clientName: "Client9", boughtCurrencyValue: 600.0, soldCurrencyValue: 540.0, dealRate: 1.1, valueDate: "2023-06-29T00:00:00Z", tradeDate: "2023-06-26T00:00:00Z", clientReference: "Ref9", boughtCurrencyCode: "USD", soldCurrencyCode: "EUR", forwardPoints: 6.0, status: "Cancelled"),
+        Deal(dealID: "10", dealRefID: "Ref10", clientName: "Client10", boughtCurrencyValue: 700.0, soldCurrencyValue: 630.0, dealRate: 1.1, valueDate: "2023-06-30T00:00:00Z", tradeDate: "2023-06-27T00:00:00Z", clientReference: "Ref10", boughtCurrencyCode: "USD", soldCurrencyCode: "EUR", forwardPoints: 7.0, status: "Active"),
+        Deal(dealID: "11", dealRefID: "Ref11", clientName: "Client11", boughtCurrencyValue: 800.0, soldCurrencyValue: 720.0, dealRate: 1.1, valueDate: "2023-07-01T00:00:00Z", tradeDate: "2023-06-28T00:00:00Z", clientReference: "Ref11", boughtCurrencyCode: "USD", soldCurrencyCode: "EUR", forwardPoints: 8.0, status: "Failed"),
+        Deal(dealID: "12", dealRefID: "Ref12", clientName: "Client12", boughtCurrencyValue: 900.0, soldCurrencyValue: 810.0, dealRate: 1.1, valueDate: "2023-07-02T00:00:00Z", tradeDate: "2023-06-29T00:00:00Z", clientReference: "Ref12", boughtCurrencyCode: "USD", soldCurrencyCode: "EUR", forwardPoints: 9.0, status: "Cancelled"),
+        Deal(dealID: "13", dealRefID: "Ref13", clientName: "Client13", boughtCurrencyValue: 1000.0, soldCurrencyValue: 900.0, dealRate: 1.1, valueDate: "2023-07-03T00:00:00Z", tradeDate: "2023-06-30T00:00:00Z", clientReference: "Ref13", boughtCurrencyCode: "USD", soldCurrencyCode: "EUR", forwardPoints: 10.0, status: "Active"),
+        Deal(dealID: "14", dealRefID: "Ref14", clientName: "Client14", boughtCurrencyValue: 1100.0, soldCurrencyValue: 990.0, dealRate: 1.1, valueDate: "2023-07-04T00:00:00Z", tradeDate: "2023-07-01T00:00:00Z", clientReference: "Ref14", boughtCurrencyCode: "USD", soldCurrencyCode: "EUR", forwardPoints: 11.0, status: "Failed"),
+        Deal(dealID: "15", dealRefID: "Ref15", clientName: "Client15", boughtCurrencyValue: 1200.0, soldCurrencyValue: 1080.0, dealRate: 1.1, valueDate: "2023-07-05T00:00:00Z", tradeDate: "2023-07-02T00:00:00Z", clientReference: "Ref15", boughtCurrencyCode: "USD", soldCurrencyCode: "EUR", forwardPoints: 12.0, status: "Cancelled")
+    ]
+
+
+    @State private var filteredDeals: [Deal] = []
+
+    @State var numberOfActiveDeals: Int = 0
+    @State var numberOfFailedDeals: Int = 0
+    @State var numberOfMaturedDeals: Int = 0
+    @State var numberOfCancelledDeals: Int = 0
+    @State var numberOfReversedDeals: Int = 0
+    
+    public init() { }
+
+    public var body: some View {
+        Button("Show Credits") {
+            withAnimation{ self.$showingCredits.wrappedValue.toggle()}
+        }
+        .sheet(isPresented: $showingCredits) {
+            VStack(spacing: 16) {
+                HStack {
+                    Text("Filter traders")
+                        .font(.system(size: 16, weight: .bold))
+                    
+                    Spacer()
+                    
+                    Button(action: {
+                        withAnimation {
+                            showingCredits = false
+                        }
+                    }) {
+                        Image(systemName: "xmark")
+                            .frame(width: 24, height: 24)
+                    }
+                        
+                }
+                
+                Divider()
+                
+                
+                Group {
+                    if numberOfActiveDeals != 0 {
+                        Toggle(isOn: $active) {
+                            Text("Active trades ") + Text("(\(numberOfActiveDeals))").foregroundColor(.disabledButtonGray)
+                        }
+                        .toggleStyle(CheckboxStyle())
+                    }
+                    
+                    if numberOfFailedDeals != 0 {
+                        Toggle(isOn: $failed) {
+                            Text("Failed trades ") + Text("(\(numberOfFailedDeals))").foregroundColor(.disabledButtonGray)
+                        }
+                        .toggleStyle(CheckboxStyle())
+                    }
+                    
+                    if numberOfMaturedDeals != 0 {
+                        Toggle(isOn: $matured) {
+                            Text("Matured trades ") + Text("(\(numberOfMaturedDeals))").foregroundColor(.disabledButtonGray)
+                        }
+                        .toggleStyle(CheckboxStyle())
+                    }
+                    
+                    if numberOfCancelledDeals != 0 {
+                        Toggle(isOn: $cancelled) {
+                            Text("Cancelled trades ") + Text("(\(numberOfCancelledDeals))").foregroundColor(.disabledButtonGray)
+                        }
+                        .toggleStyle(CheckboxStyle())
+                    }
+                    
+                    if numberOfReversedDeals != 0 {
+                        Toggle(isOn: $reversed) {
+                            Text("Reversed trades ") + Text("(\(numberOfReversedDeals))").foregroundColor(.disabledButtonGray)
+                        }
+                        .toggleStyle(CheckboxStyle())
+                    }
+                    
+                } .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .leading)
+                
+                
+                // Button
+                Button(action: {
+                    active = false
+                    failed = false
+                    cancelled = false
+                    matured = false
+                    reversed = false
+                    sortByValueDate = false
+                    clearAllFilters()
+                }){
+                    Text("Clear all filters")
+                        .foregroundColor(Colors.pinkHighlight.color)
+                        .underline()
+                }.frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .leading)
+                
+                
+                Divider()
+                
+                Group {
+                    Text("Sort by")
+                        .font(.body)
+                        .fontWeight(.bold)
+                    
+                    
+                    Toggle(isOn: $sortByValueDate) {
+                        Text("Value date")
+                    }
+                    .toggleStyle(RadioButtonStyle())
+                    
+                    Toggle(isOn: .constant(!$sortByValueDate.wrappedValue)) {
+                        Text("Date created")
+                    }
+                    .toggleStyle(RadioButtonStyle())
+                    
+                    
+                    
+                }.frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .leading)
+            
+            Button(action: {
+                filterAndSortDeals()
+                withAnimation{ self.$showingCredits.wrappedValue.toggle()}
+            }) {
+                HStack {
+                    Text("Apply")
+                        .foregroundColor(.white)
+                        .font(.body)
+                }.padding(50)
+            }
+            .buttonStyle(FxButtonStyle(ButtonTheme(type: .default, isFullWidth: true, backgroundColor: Colors.pinkHighlight.color)))
+            .padding(.top, 16)
+                
+                //Spacer()
+            }
+            .onAppear {
+                self.numberOfActiveDeals = self.deals.filter { $0.status == "Active" }.count
+                self.numberOfFailedDeals = self.deals.filter { $0.status == "Failed" }.count
+                self.numberOfMaturedDeals = self.deals.filter { $0.status == "Matured" }.count
+                self.numberOfCancelledDeals = self.deals.filter { $0.status == "Cancelled" }.count
+                self.numberOfReversedDeals = self.deals.filter { $0.status == "Reversed" }.count
+            }
+            .padding()
+            //.presentationDetents([.height(530)])
+            .presentationDetents([.height(CGFloat(310 + (Set(self.deals.map { $0.status }).count * 40)))])
+        }
+    }
+    
+    private func filterAndSortDeals() {
+           let selectedStatuses = [active ? "Active" : nil, failed ? "Failed" : nil, matured ? "Matured" : nil, cancelled ? "Cancelled" : nil, reversed ? "Reversed" : nil].compactMap { $0 }
+           
+           filteredDeals = deals.filter { selectedStatuses.contains($0.status ?? "") }
+           
+           if sortByValueDate {
+               filteredDeals.sort(by: { $0.valueDateAsDate ?? Date() < $1.valueDateAsDate ?? Date() })
+           } else {
+               filteredDeals.sort(by: { $0.tradeDateAsDate ?? Date() < $1.tradeDateAsDate ?? Date() })
+           }
+        
+        print("Filtered deals:")
+        for deal in filteredDeals {
+            print("Deal ID: \(deal.dealID ?? ""), Status: \(deal.status ?? ""), Value Date: \(deal.valueDate), Trade Date: \(deal.tradeDate)")
+        }
+       }
+    
+    // Add this function to handle clear all filters action
+    func clearAllFilters() {
+        filteredDeals = deals
+        if sortByValueDate {
+            filteredDeals.sort(by: { $0.valueDateAsDate ?? Date() < $1.valueDateAsDate ?? Date() })
+        } else {
+            filteredDeals.sort(by: { $0.tradeDateAsDate ?? Date() < $1.tradeDateAsDate ?? Date() })
+        }
+
+        print("Deals after clearing all filters:")
+        for deal in filteredDeals {
+            print("Deal ID: \(deal.dealID ?? ""), Status: \(deal.status ?? ""), Value Date: \(deal.valueDate), Trade Date: \(deal.tradeDate)")
+        }
+    }
+}
