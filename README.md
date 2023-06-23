@@ -815,12 +815,17 @@ public struct HalfModal16: View {
     }
 }
 
-    'https://fx-mobile-bff.cib-fx-orders-uat.cib-fx.nonprod.caas.absa.co.za/api/orders?LegalEntity=string1&LegalEntity=string2&LegalEntity=string3'
-    func queryParams(_ entities: [String], params: [String: String]) -> [String : String] {
-        return entities
-            .reduce(into: [:]) { result, entity in
-                result["LegalEntity"] = entity
-            }.reduce(into: params) { result, keyValuePair in
-                result[keyValuePair.key] = keyValuePair.value
-            }
+func queryParams(_ entities: [String], params: [String: String]) -> String {
+    var result = params.map { "\($0.key)=\($0.value)" }.joined(separator: "&")
+    
+    let entityParams = entities.map { "LegalEntity=\($0)" }.joined(separator: "&")
+    
+    if !result.isEmpty && !entityParams.isEmpty {
+        result += "&"
     }
+    
+    result += entityParams
+    
+    return result
+}
+
