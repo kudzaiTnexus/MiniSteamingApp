@@ -829,3 +829,14 @@ func queryParams(_ entities: [String], params: [String: String]) -> String {
     return result
 }
 
+
+fun getAmountTier(amount: Double): RateTier? {
+    if (amount > 0 && !tiers.isNullOrEmpty()) {
+        tiers.forEach { item ->
+            if (amount <= (item.maxQtyInBaseCcy?.value ?: 0.0))
+                return item
+        }
+    }
+
+    return tiers?.firstOrNull()
+}
