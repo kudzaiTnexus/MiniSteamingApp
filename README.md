@@ -830,13 +830,49 @@ func queryParams(_ entities: [String], params: [String: String]) -> String {
 }
 
 
-fun getAmountTier(amount: Double): RateTier? {
-    if (amount > 0 && !tiers.isNullOrEmpty()) {
-        tiers.forEach { item ->
-            if (amount <= (item.maxQtyInBaseCcy?.value ?: 0.0))
-                return item
-        }
-    }
+public struct Rate: Decodable, Identifiable {
+    public var id = UUID()
+    
+	var name: String
+    var valueDateUtc: String?
+    var pair: CurrencyPair?
+	var bidRate: Decimal?
+	var midRate: Decimal?
+	var askRate: Decimal?
+    var decimalLimit: Int
+    var tiers: [Tier?]
+    let pointMultiplier: Int?
+    let token: String?
+    
+    var direction: TickDirection = .none
+    
+	enum CodingKeys: String, CodingKey {
+        case token
+		case currencyPair = "currencyPair"
+        case pair
+		case midRate = "mid"
+        case tiers
+        case decimalLimit
+        case valueDateUtc
+        case pointMultiplier
+	}
+}
 
-    return tiers?.firstOrNull()
+
+public struct Tier: Decodable {
+    
+    var bidRate: Decimal?
+    var askRate: Decimal?
+    var fromAmount: Decimal?
+    var bidPoints, askPoints, spotAsk, spotBid: Decimal?
+
+    enum CodingKeys: String, CodingKey {
+        case bidRate = "bid"
+        case askRate = "ask"
+        case fromAmount
+        case bidPoints
+        case askPoints
+        case spotBid
+        case spotAsk
+    }
 }
