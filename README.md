@@ -876,3 +876,115 @@ public struct Tier: Decodable {
         case spotAsk
     }
 }
+
+struct ContentView: View {
+    var body: some View {
+        PopoverWrapper(
+                   options: ["View charts"],
+                   optionSelected: { selectedOption in
+                       print("Selected option: \(selectedOption)")
+                   }
+               )
+    }
+}
+
+
+struct PopoverWrapper: UIViewControllerRepresentable {
+    var options: [String]
+    var optionSelected: ((String) -> Void)?
+
+    func makeUIViewController(context: Context) -> PopoverViewController {
+        let popoverViewController = PopoverViewController()
+        popoverViewController.options = options
+        popoverViewController.optionSelected = optionSelected
+        return popoverViewController
+    }
+
+    func updateUIViewController(_ uiViewController: PopoverViewController, context: Context) {
+        // Update the options if necessary
+        uiViewController.options = options
+        uiViewController.optionSelected = optionSelected
+    }
+}
+
+class PopoverViewController: UIViewController, UIPopoverPresentationControllerDelegate {
+    var options: [String] = []
+    var optionSelected: ((String) -> Void)?
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+        let button = UIButton(type: .system)
+        button.setImage(UIImage(named: "data-capping"), for: .normal)
+        button.tintColor = .black
+        button.addTarget(self, action: #selector(showPopover), for: .touchUpInside)
+
+        view.addSubview(button)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        button.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
+    }
+
+    @objc func showPopover(sender: UIButton) {
+        let optionListController = OptionListController(options: options)
+        optionListController.optionSelected = optionSelected
+        optionListController.modalPresentationStyle = .popover
+        
+        optionListController.dismissHandler = { [weak self] in
+            self?.dismiss(animated: true, completion: nil)
+        }
+
+        if let popoverPresentationController = optionListController.popoverPresentationController {
+            popoverPresentationController.sourceView = sender
+            popoverPresentationController.sourceRect = sender.bounds
+            popoverPresentationController.permittedArrowDirections = .up
+            popoverPresentationController.delegate = self
+        }
+
+        present(optionListController, animated: true, completion: nil)
+    }
+
+    // Ensure that the popover is always used even on large screens
+    func adaptivePresentationStyle(for controller: UIPresentationController) -> UIModalPresentationStyle {
+        return .none
+    }
+}
+
+// This is a simple view controller that displays a list of options in a table view
+class OptionListController: UITableViewController {
+    var options: [String]
+    var optionSelected: ((String) -> Void)?
+    var dismissHandler: (() -> Void)?
+
+    init(options: [String]) {
+        self.options = options
+        super.init(style: .plain)
+        self.preferredContentSize = CGSize(width: 160, height: options.count * 40)
+    }
+
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return options.count
+    }
+
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell") ?? UITableViewCell(style: .default, reuseIdentifier: "Cell")
+        cell.textLabel?.text = options[indexPath.row]
+        cell.selectionStyle = .none
+        return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 40
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let selectedOption = options[indexPath.row]
+        optionSelected?(selectedOption)
+        dismissHandler?()
+    }
+}
+
