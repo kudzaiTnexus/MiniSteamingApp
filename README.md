@@ -988,3 +988,54 @@ class OptionListController: UITableViewController {
     }
 }
 
+class CustomTableViewCell: UITableViewCell {
+    let cellImageView: UIImageView = {
+        let img = UIImageView()
+        img.translatesAutoresizingMaskIntoConstraints = false
+        return img
+    }()
+
+    let cellLabel: UILabel = {
+        let lbl = UILabel()
+        lbl.translatesAutoresizingMaskIntoConstraints = false
+        return lbl
+    }()
+
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
+        
+        self.contentView.addSubview(cellImageView)
+        self.contentView.addSubview(cellLabel)
+        self.selectionStyle = .none // To avoid color change on cell tap
+
+        NSLayoutConstraint.activate([
+            cellImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 10),
+            cellImageView.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
+            cellImageView.widthAnchor.constraint(equalToConstant: 30),
+            cellImageView.heightAnchor.constraint(equalToConstant: 30),
+            
+            cellLabel.leadingAnchor.constraint(equalTo: cellImageView.trailingAnchor, constant: 10),
+            cellLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -10),
+            cellLabel.centerYAnchor.constraint(equalTo: contentView.centerYAnchor)
+        ])
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+}
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        self.tableView.register(CustomTableViewCell.self, forCellReuseIdentifier: "Cell")
+    }
+
+    // Other methods...
+
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! CustomTableViewCell
+        let (option, image) = options[indexPath.row]
+        cell.cellLabel.text = option
+        cell.cellImageView.image = image
+        return cell
+    }
