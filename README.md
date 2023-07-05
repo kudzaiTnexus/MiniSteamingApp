@@ -877,165 +877,462 @@ public struct Tier: Decodable {
     }
 }
 
+import SwiftUI
+
 struct ContentView: View {
     var body: some View {
-        PopoverWrapper(
-                   options: ["View charts"],
-                   optionSelected: { selectedOption in
-                       print("Selected option: \(selectedOption)")
-                   }
-               )
-    }
-}
+        GeometryReader {
+            let safeArea = $0.safeAreaInsets
+            let size = $0.size
+            NavigationView {
+                Home(safeArea: safeArea, size: size)
+                    .ignoresSafeArea(.container, edges: .top)
+            }
 
-
-struct PopoverWrapper: UIViewControllerRepresentable {
-    var options: [String]
-    var optionSelected: ((String) -> Void)?
-
-    func makeUIViewController(context: Context) -> PopoverViewController {
-        let popoverViewController = PopoverViewController()
-        popoverViewController.options = options
-        popoverViewController.optionSelected = optionSelected
-        return popoverViewController
-    }
-
-    func updateUIViewController(_ uiViewController: PopoverViewController, context: Context) {
-        // Update the options if necessary
-        uiViewController.options = options
-        uiViewController.optionSelected = optionSelected
-    }
-}
-
-class PopoverViewController: UIViewController, UIPopoverPresentationControllerDelegate {
-    var options: [String] = []
-    var optionSelected: ((String) -> Void)?
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        let button = UIButton(type: .system)
-        button.setImage(UIImage(named: "data-capping"), for: .normal)
-        button.tintColor = .black
-        button.addTarget(self, action: #selector(showPopover), for: .touchUpInside)
-
-        view.addSubview(button)
-        button.translatesAutoresizingMaskIntoConstraints = false
-        button.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        button.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
-    }
-
-    @objc func showPopover(sender: UIButton) {
-        let optionListController = OptionListController(options: options)
-        optionListController.optionSelected = optionSelected
-        optionListController.modalPresentationStyle = .popover
-        
-        optionListController.dismissHandler = { [weak self] in
-            self?.dismiss(animated: true, completion: nil)
         }
-
-        if let popoverPresentationController = optionListController.popoverPresentationController {
-            popoverPresentationController.sourceView = sender
-            popoverPresentationController.sourceRect = sender.bounds
-            popoverPresentationController.permittedArrowDirections = .up
-            popoverPresentationController.delegate = self
-        }
-
-        present(optionListController, animated: true, completion: nil)
-    }
-
-    // Ensure that the popover is always used even on large screens
-    func adaptivePresentationStyle(for controller: UIPresentationController) -> UIModalPresentationStyle {
-        return .none
     }
 }
 
-// This is a simple view controller that displays a list of options in a table view
-class OptionListController: UITableViewController {
-    var options: [String]
-    var optionSelected: ((String) -> Void)?
-    var dismissHandler: (() -> Void)?
-
-    init(options: [String]) {
-        self.options = options
-        super.init(style: .plain)
-        self.preferredContentSize = CGSize(width: 160, height: options.count * 40)
-    }
-
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return options.count
-    }
-
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell") ?? UITableViewCell(style: .default, reuseIdentifier: "Cell")
-        cell.textLabel?.text = options[indexPath.row]
-        cell.selectionStyle = .none
-        return cell
-    }
+struct Album: Identifiable{
+    var id = UUID().uuidString
+    var albumName: String
     
-    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 40
-    }
-    
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let selectedOption = options[indexPath.row]
-        optionSelected?(selectedOption)
-        dismissHandler?()
-    }
 }
 
-class CustomTableViewCell: UITableViewCell {
-    let cellImageView: UIImageView = {
-        let img = UIImageView()
-        img.translatesAutoresizingMaskIntoConstraints = false
-        return img
-    }()
+var albums: [Album] = [
+    Album(albumName: "Arsenal des belles mélodies"),
+    Album(albumName: "Bloqué"),
+    Album(albumName: "Se Yo"),
+    Album(albumName: "Droit Chemin"),
+    Album(albumName: "Destin"),
+    Album(albumName: "Tokooos II"),
+    Album(albumName: "Tokooos II Gold"),
+    Album(albumName: "Science - Fiction"),
+    Album(albumName: "Strandje Aan De Maas"),
+    Album(albumName: "Inama"),
+    Album(albumName: "Par Terre - A COLOR SHOW"),
+    Album(albumName: "QALF infinity"),
+    Album(albumName: "Berna Reloaded"),
+    Album(albumName: "Flavour of Africa"),
+    Album(albumName: "Control"),
+    Album(albumName: "Gentleman 2.0"),
+    Album(albumName: "Power 'Kosa Leka' : Vol 1"),
+    Album(albumName: "Historia"),
+    Album(albumName: "Tokooos"),
+    Album(albumName: "Fleur Froide - Second état : la cristalisation"),
+    
+]
 
-    let cellLabel: UILabel = {
-        let lbl = UILabel()
-        lbl.translatesAutoresizingMaskIntoConstraints = false
-        return lbl
-    }()
 
-    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
-        super.init(style: style, reuseIdentifier: reuseIdentifier)
-        
-        self.contentView.addSubview(cellImageView)
-        self.contentView.addSubview(cellLabel)
-        self.selectionStyle = .none // To avoid color change on cell tap
 
-        NSLayoutConstraint.activate([
-            cellImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 10),
-            cellImageView.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
-            cellImageView.widthAnchor.constraint(equalToConstant: 30),
-            cellImageView.heightAnchor.constraint(equalToConstant: 30),
+struct Home: View {
+    
+    @State private var selectedTab = 1
+    @State private var outerMinY = CGFloat(1000.0)
+    // MARK: - Properties
+    
+    var safeArea: EdgeInsets
+    var size: CGSize
+    var body: some View {
+        ScrollView(.vertical, showsIndicators: false) {
+            VStack(spacing: 0) {
+                // MARK: - Artwork
+                Artwork()
+                
+                // Since We ignored Top Edge
+                GeometryReader { proxy in
+                    let minY = proxy.frame(in: .named("SCROLL")).minY - safeArea.top
+                    VStack(alignment: .leading, spacing: 0) {
+                  
+//                        HStack(spacing: 0) {
+//                            tabButton(title: "One", tags: 1)
+//                            tabButton(title: "Two", tags: 2)
+//                            tabButton(title: "Three", tags: 3)
+//                        }
+//                        .frame(height: 50)
+//                        .background(Color.white)
+//                        .font(.headline)
+                        TabbedSwitcher()
+                    }
+                    .frame(maxWidth: .infinity, maxHeight: .infinity)
+                    .offset(y: minY < 38 ? -(minY - 38) : 0)
+                    .onChange(of: minY) { newValue in
+                        outerMinY = newValue
+                    }
+                }
+                .frame(height: 50)
+                .padding(.top, -34)
+                .zIndex(1)
+                
+                VStack{
+
+                    // MARK: - Album View
+                    if selectedTab == 1 {
+                        AlbumView()
+                    } else {
+                        
+                        Rates()
+                    }
+                }
+                .background(Color(red: 0.949, green: 0.949, blue: 0.949, opacity: 1.0))
+                .zIndex(0)
+                
+            }
+           // .background(Color(red: 0.949, green: 0.949, blue: 0.949, opacity: 1.0))
+//            .overlay(alignment: .top) {
+//                HeaderView()
+//            }
             
-            cellLabel.leadingAnchor.constraint(equalTo: cellImageView.trailingAnchor, constant: 10),
-            cellLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -10),
-            cellLabel.centerYAnchor.constraint(equalTo: contentView.centerYAnchor)
-        ])
+        }
+//        .background(Color(red: 0.949, green: 0.949, blue: 0.949, opacity: 1.0))
+//        .coordinateSpace(name: "SCROLL")
+//        .navigationTitle("Forex")
+//        .navigationBarTitleDisplayMode(.inline)
+        .toolbar {
+            ToolbarItemGroup(placement: .navigationBarLeading) {
+                Button {
+                    withAnimation {
+                        //showSettingsView = true
+                    }
+                } label: {
+                    Image(systemName: "chevron.backward")
+                        .frame(width: 16, height: 16)
+                        .tint(Color.white)
+                }
+            }
+            
+            ToolbarItemGroup(placement: .principal) {
+                Text("Access FX")
+                    .font(.system(size: 20, weight: .semibold))
+                    .foregroundColor(.white)
+            }
+            
+            ToolbarItemGroup(placement: .navigationBarTrailing) {
+                Button {
+                    withAnimation {
+                        //showSettingsView = true
+                    }
+                } label: {
+                    Image(systemName: "plus")
+                        .frame(width: 16, height: 16)
+                        .tint(Color.white)
+                }.opacity(outerMinY < 38 ? 1 : 0)
+            }
+            
+            ToolbarItemGroup(placement: .navigationBarTrailing) {
+                Button {
+                    withAnimation {
+                        //showSettingsView = true
+                    }
+                } label: {
+                    Image(systemName: "gear")
+                        .frame(width: 16, height: 16)
+                        .tint(Color.white)
+                }
+            }
+        }
     }
     
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+    @ViewBuilder
+       func Artwork() -> some View {
+           let height = 220.0
+           GeometryReader { proxy in
+               
+               let size = proxy.size
+               let minY = proxy.frame(in: .named("SCROLL")).minY
+               let progress = minY / (height * (minY > 0 ? 0.5 : 0.8))
+               
+               Image("background_gradient")
+                   .resizable()
+                   .aspectRatio(contentMode: .fill)
+                   .frame(width: size.width, height: size.height )
+                   .clipped()
+                   .overlay(content: {
+                       ZStack(alignment: .bottom) {
+                           
+
+                           VStack(spacing: 0) {
+                               
+                               Text("View Orders for:")
+                                   .foregroundColor(Color.white)
+                                   .font(.system(size: 12))
+                                   .padding(.top, 8)
+                               
+                               HStack(alignment: .center) {
+                                   Text("Dunken Miler")
+                                       .foregroundColor(Color.white)
+                                       .font(.system(size: 27, weight: .semibold))
+                                       .padding(.top, 4)
+
+                               }
+                               
+                               Text("Sales for, Mel")
+                                   .foregroundColor(Color.white)
+                                   .font(.system(size: 16))
+                                   .padding(.top, 4)
+
+                               Spacer()
+                           }
+                           .frame(width: UIScreen.main.bounds.width, height: 180)
+                           .opacity(1 + (progress > 0 ? -progress : progress))
+                       }
+                       .offset(y: safeArea.top)
+                   })
+                   .offset(y: -minY)
+               
+                
+           }
+           .frame(height: height + safeArea.top )
+       }
+
+    
+    @ViewBuilder
+    func AlbumView() -> some View {
+        VStack(spacing:  25) {
+            ForEach(albums.indices, id: \.self) { index in
+                HStack(spacing: 25) {
+                    Text("\(index + 1)")
+                        .font(.callout)
+                        .fontWeight(.semibold)
+                        .foregroundColor(.gray)
+                    
+                    VStack(alignment: .leading, spacing: 6){
+                        Text(albums[index].albumName)
+                            .fontWeight(.semibold)
+                            .foregroundColor(.black)
+                        Text("2,282,938")
+                            .font(.caption)
+                            .foregroundColor(.gray)
+                    }
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                    
+                    Image(systemName: "ellipsis")
+                        .foregroundColor(.gray)
+                    
+                }
+                
+            }
+        }
+        .padding(15)
+    }
+    
+    @ViewBuilder
+    func Rates() -> some View {
+        VStack(spacing:0) {
+            
+            ForEach(1...35,id: \.self) { i in
+                
+                VStack {
+                    HStack {
+                        Text("test")
+                            .font(.body)
+                            .fontWeight(.bold)
+                            .lineLimit(1)
+                            .fixedSize()
+                        
+                        Spacer()
+                        
+                        Text("test desc")
+                            .font(.body)
+                            .fontWeight(.bold)
+                            .lineLimit(1)
+                            .fixedSize()
+                    }
+                }
+
+            }
+        }
+    }
+    
+    
+    // MARK: - Header View
+    @ViewBuilder
+    func HeaderView() -> some View {
+        GeometryReader{ proxy in
+            let minY = proxy.frame(in: .named("SCROLL")).minY
+            let height = size.height * 0.45
+            let progress = minY / (height * (minY > 0 ? 0.5 : 0.8))
+            let titleProgress =  minY / height
+
+            HStack(spacing: 15) {
+                Button {
+
+                } label: {
+                    Image(systemName: "chevron.left")
+                        .font(.title3)
+                        .foregroundColor(.white)
+                }
+                Spacer(minLength: 0)
+
+
+                Button {
+
+                } label: {
+                    Text("FOLLOWING")
+                        .font(.caption)
+                        .fontWeight(.semibold)
+                        .foregroundColor(.white)
+                        .padding(.horizontal, 10)
+                        .padding(.vertical, 6)
+                        .border(.white, width: 1.5)
+                }
+                .opacity(1 + progress)
+
+                Button {
+
+                } label: {
+                    Image(systemName: "ellipsis")
+                        .font(.title3)
+                        .foregroundColor(.white)
+                }
+            }
+            .background(Color("background_gradient"))
+            .overlay(content: {
+                Text("Fally Ipupa")
+                    .fontWeight(.semibold)
+                    .offset(y: -titleProgress > 0.75 ? 0 : 45)
+                    .clipped()
+                    .animation(.easeOut(duration: 0.25), value: -titleProgress > 0.75)
+            })
+            .padding(.top, safeArea.top + 10)
+            .padding([.horizontal,.bottom], 15)
+            .background(
+                Color("background_gradient")
+                    .opacity(-progress > 1 ? 1 : 0)
+            )
+            .offset(y: -minY)
+
+
+
+        }
+        .frame(height: 35)
+    }
+    
+    func tabButton(title: String, tags: Int) -> some View {
+        VStack {
+            Spacer()
+            Text("First Tab").foregroundColor(selectedTab == tags ? .red : .gray).font(.headline)
+            .frame(maxWidth: .infinity)
+            .foregroundColor(selectedTab == tags ? .red : .gray)
+            
+            Spacer()
+            
+            Color(selectedTab == tags ? .red : .clear)
+                .frame(height: 4)
+        }
+        .frame(height: 50)
+        .onTapGesture {
+            withAnimation { selectedTab = tags }
+        }
     }
 }
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        self.tableView.register(CustomTableViewCell.self, forCellReuseIdentifier: "Cell")
+/////////////
+///
+struct TabbedSwitcher: View {
+    @State var currentTab: Int = 0
+    var body: some View {
+        ZStack(alignment: .top) {
+            TabView(selection: self.$currentTab) {
+                View1().tag(0)
+                View2().tag(1)
+                View3().tag(2)
+            }
+            .tabViewStyle(.page(indexDisplayMode: .never))
+            .edgesIgnoringSafeArea(.all)
+            
+            TabBarView(currentTab: self.$currentTab)
+        }
     }
+}
 
-    // Other methods...
-
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! CustomTableViewCell
-        let (option, image) = options[indexPath.row]
-        cell.cellLabel.text = option
-        cell.cellImageView.image = image
-        return cell
+struct TabBarView: View {
+    @Binding var currentTab: Int
+    @Namespace var namespace
+    
+    var tabBarOptions: [String] = ["Hello World", "Something cool"]
+    
+    var body: some View {
+        ScrollView(.horizontal, showsIndicators: false) {
+            HStack(spacing: 0) {
+                ForEach(Array(zip(self.tabBarOptions.indices,
+                                  self.tabBarOptions)),
+                        id: \.0,
+                        content: {
+                    index, name in
+                    TabBarItem(currentTab: self.$currentTab,
+                               namespace: namespace.self,
+                               tabBarItemName: name,
+                               tab: index)
+                    
+                })
+            }
+           // .padding(.horizontal)
+        }
+        .background(Color.white)
+        .frame(height: 50)
+        .edgesIgnoringSafeArea(.all)
     }
+}
+
+struct TabBarItem: View {
+    @Binding var currentTab: Int
+    let namespace: Namespace.ID
+    
+    var tabBarItemName: String
+    var tab: Int
+    
+    var body: some View {
+        HStack {
+            Spacer()
+            
+            Button {
+                self.currentTab = tab
+            } label: {
+                VStack {
+                    Spacer()
+                    Text(tabBarItemName)
+                    if currentTab == tab {
+                        Color.red
+                            .frame(height: 2)
+                            .matchedGeometryEffect(id: "underline",
+                                                   in: namespace,
+                                                   properties: .frame)
+                    } else {
+                        Color.clear.frame(height: 2)
+                    }
+                }
+                .animation(.spring(), value: self.currentTab)
+            }
+            .buttonStyle(.plain)
+            
+            Spacer()
+        }
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
+        .background(Color.green)
+    }
+}
+
+struct View1: View {
+    var body: some View {
+        Color.yellow
+            .opacity(0.2)
+            .edgesIgnoringSafeArea(.all)
+    }
+}
+
+struct View2: View {
+    var body: some View {
+        Color.green
+            .opacity(0.2)
+            .edgesIgnoringSafeArea(.all)
+    }
+}
+
+struct View3: View {
+    var body: some View {
+        Color.red
+            .opacity(0.2)
+            .edgesIgnoringSafeArea(.all)
+    }
+}
