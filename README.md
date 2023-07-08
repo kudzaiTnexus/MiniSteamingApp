@@ -1,13 +1,25 @@
-struct Sticky_HeaderApp: App {
+//
+//  StickyHeaderApp.swift
+//  StickyHeader
+//
+//  Created by Le Bon B' Bauma on 03/12/2022.
+//
+
+import SwiftUI
+
+@main
+struct StickyHeaderApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            AccessFxHome()
         }
     }
 }
 
 
-struct ContentView: View {
+struct AccessFxHome: View {
+    
+    @State var hideNavCreateButton: Bool = true
 
     var body: some View {
         GeometryReader {
@@ -15,6 +27,23 @@ struct ContentView: View {
             let size = $0.size
                 VStack(spacing: 0) {
                     HStack {
+                        
+                        HStack {
+                            Button(action: {
+                                print("Menu Button Tapped")
+                            }) {
+                                Image(systemName: "chevron.left")
+                                    .resizable()
+                                    .scaledToFit()
+                                    .frame(width: 16, height: 16)
+                                    .foregroundColor(Color.white)
+                            }
+                            .padding(.trailing, 8)
+                            
+                            Spacer()
+                        }
+                        .frame(minWidth: 0, maxWidth: .infinity)
+                        
                         Spacer()
                         
                         Text("Absa Access")
@@ -22,6 +51,33 @@ struct ContentView: View {
                             .foregroundColor(.white)
                         
                         Spacer()
+                        
+                        HStack {
+                            Spacer()
+                            
+                            Button(action: {
+                                print("Menu Button Tapped")
+                            }) {
+                                Image(systemName: "plus") // image name
+                                    .resizable()
+                                    .scaledToFit()
+                                    .frame(width: 16, height: 16)
+                                    .foregroundColor(Color.white)
+                            }
+                            .padding(.trailing, 8)
+                            .opacity(hideNavCreateButton ? 0 : 1)
+                            
+                            Button(action: {
+                                print("Search Button Tapped")
+                            }) {
+                                Image(systemName: "gear") // image name
+                                    .resizable()
+                                    .scaledToFit()
+                                    .frame(width: 24, height: 24)
+                                    .foregroundColor(Color.white)
+                            }
+                        }
+                        .frame(minWidth: 0, maxWidth: .infinity)
                     }
                     .padding()
                     .background(
@@ -30,8 +86,12 @@ struct ContentView: View {
                             .edgesIgnoringSafeArea(.top)
                     )
                     
-                    Home(safeArea: safeArea, size: size)
-                        .ignoresSafeArea(.container, edges: .top)
+                    Home(
+                        hideNavCreateButton: $hideNavCreateButton,
+                        safeArea: safeArea,
+                        size: size
+                    )
+                    .ignoresSafeArea(.container, edges: .top)
                 }
                 .hideNavigationBar()
         }
@@ -58,6 +118,8 @@ struct Home: View {
     
     @State private var selectedTab = 1
     @State private var outerMinY = CGFloat(1000.0)
+    
+    @Binding var hideNavCreateButton: Bool
     // MARK: - Properties
     
     var safeArea: EdgeInsets
@@ -86,6 +148,8 @@ struct Home: View {
                     .offset(y: minY < 50 ? -(minY - 50) : 0)
                     .onChange(of: minY) { newValue in
                         outerMinY = newValue
+                        
+                        outerMinY < 50 ? (hideNavCreateButton = false) : (hideNavCreateButton = true)
                     }
                 }
                 .frame(height: 50)
@@ -107,49 +171,55 @@ struct Home: View {
                 
             }
         }
-        .toolbar {
-            ToolbarItemGroup(placement: .navigationBarLeading) {
-                Button {
-                    withAnimation {
-                        //showSettingsView = true
-                    }
-                } label: {
-                    Image(systemName: "chevron.backward")
-                        .frame(width: 16, height: 16)
-                        .foregroundColor(Color.white)
-                }
-            }
-            
-            ToolbarItemGroup(placement: .principal) {
-                Text("Access FX")
-                    .font(.system(size: 20, weight: .semibold))
-                    .foregroundColor(.white)
-            }
-            
-            ToolbarItemGroup(placement: .navigationBarTrailing) {
-                Button {
-                    withAnimation {
-                        //showSettingsView = true
-                    }
-                } label: {
-                    Image(systemName: "plus")
-                        .frame(width: 16, height: 16)
-                        .foregroundColor(Color.white)
-                }.opacity(outerMinY < 38 ? 1 : 0)
-            }
-            
-            ToolbarItemGroup(placement: .navigationBarTrailing) {
-                Button {
-                    withAnimation {
-                        //showSettingsView = true
-                    }
-                } label: {
-                    Image(systemName: "gear")
-                        .frame(width: 16, height: 16)
-                        .foregroundColor(Color.white)
-                }
-            }
-        }
+        .hideNavigationBar()
+        .accessFxNavBar(
+            title: "Access FX",
+            titleAction: { },
+            leadingAction: { }
+        )
+//        .toolbar {
+//            ToolbarItemGroup(placement: .navigationBarLeading) {
+//                Button {
+//                    withAnimation {
+//                        //showSettingsView = true
+//                    }
+//                } label: {
+//                    Image(systemName: "chevron.backward")
+//                        .frame(width: 16, height: 16)
+//                        .foregroundColor(Color.white)
+//                }
+//            }
+//
+//            ToolbarItemGroup(placement: .principal) {
+//                Text("Access FX")
+//                    .font(.system(size: 20, weight: .semibold))
+//                    .foregroundColor(.white)
+//            }
+//
+//            ToolbarItemGroup(placement: .navigationBarTrailing) {
+//                Button {
+//                    withAnimation {
+//                        //showSettingsView = true
+//                    }
+//                } label: {
+//                    Image(systemName: "plus")
+//                        .frame(width: 16, height: 16)
+//                        .foregroundColor(Color.white)
+//                }.opacity(outerMinY < 38 ? 1 : 0)
+//            }
+//
+//            ToolbarItemGroup(placement: .navigationBarTrailing) {
+//                Button {
+//                    withAnimation {
+//                        //showSettingsView = true
+//                    }
+//                } label: {
+//                    Image(systemName: "gear")
+//                        .frame(width: 16, height: 16)
+//                        .foregroundColor(Color.white)
+//                }
+//            }
+//        }
     }
 
 
@@ -160,7 +230,7 @@ struct Home: View {
         GeometryReader { proxy in
             let size = proxy.size
             let minY = proxy.frame(in: .named("SCROLL")).minY
-            let progress = minY > 0.5 ? 1 : max(0.3, minY / (height * 0.6))
+            let progress = minY > 0.9 ? 1 : max(0.1, minY / (height * 0.1))
 
             Image("background_gradient")
                 .resizable()
@@ -175,6 +245,18 @@ struct Home: View {
                                 .font(.system(size: 12))
                                 .padding(.top, 8)
 
+                            HStack(alignment: .center) {
+                                Text("Dunken Miler")
+                                    .foregroundColor(Color.white)
+                                    .font(.system(size: 27, weight: .semibold))
+                                    .padding(.top, 4)
+                            }
+
+                            Text("Sales for, Mel")
+                                .foregroundColor(Color.white)
+                                .font(.system(size: 16))
+                                .padding(.top, 4)
+                            
                             HStack(alignment: .center) {
                                 Text("Dunken Miler")
                                     .foregroundColor(Color.white)
@@ -277,9 +359,144 @@ struct Home: View {
             Color(selectedTab == tags ? .red : .clear)
                 .frame(height: 4)
         }
-        .frame(height: 50)
+        .frame(height: 60)
         .onTapGesture {
             withAnimation { selectedTab = tags }
         }
     }
 }
+
+
+
+
+
+struct NavigationBarView: View {
+    var title: String
+    var imageTitle1: String?
+    var imageTitle2: String?
+    var titleAction: (() -> Void)?
+    var leadingAction: (() -> Void)?
+    var trailingAction1: (() -> Void)?
+    var trailingAction2: (() -> Void)?
+    
+    var body: some View {
+        HStack {
+           
+                Button(action: {
+                    leadingAction?()
+                }, label: {
+                    Image(systemName: "chevron.left")
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: 18, height: 18)
+                        .foregroundColor(Color.white)
+                })
+                .foregroundColor(.white)
+        
+            
+            Spacer()
+            
+            Button(action: {
+                titleAction?()
+            }, label: {
+                HStack {
+                    Text(title)
+                        .foregroundColor(.white)
+                        .font(.system(size: 20, weight: .semibold))
+                    
+                    Image(systemName: "chevron.down")
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: 18, height: 18)
+                        .foregroundColor(Color.white)
+                        //.isHidden(titleAction == nil, remove: titleAction == nil)
+                }
+            })
+            .foregroundColor(.white)
+               
+            
+            Spacer()
+            
+            HStack {
+                if trailingAction1 != nil && imageTitle1 != nil {
+                    Button(action: {
+                        trailingAction1?()
+                    }, label: {
+                        Image(systemName: imageTitle1!)
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: 24, height: 24)
+                            .foregroundColor(Color.white)
+                    })
+                    .foregroundColor(.white)
+                }
+                
+                if trailingAction2 != nil && imageTitle1 != nil {
+                    Button(action: {
+                        trailingAction2?()
+                    }, label: {
+                        Image(systemName: imageTitle2!)
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: 24, height: 24)
+                            .foregroundColor(Color.white)
+                    })
+                    .foregroundColor(.white)
+                }
+            }
+        }
+        .padding()
+        .background(
+            Image("background_gradient")
+                .resizable()
+                .edgesIgnoringSafeArea(.top)
+        )
+
+    }
+}
+
+struct NavigationBarModifier: ViewModifier {
+    var title: String
+    
+    var imageTitle1: String? = nil
+    var imageTitle2: String? = nil
+    var titleAction: (() -> Void)? = nil
+    var leadingAction: (() -> Void)? = nil
+    var trailingAction1: (() -> Void)? = nil
+    var trailingAction2: (() -> Void)? = nil
+    
+    func body(content: Content) -> some View {
+        VStack {
+            NavigationBarView(title: title,
+                              imageTitle1: imageTitle1,
+                              imageTitle2: imageTitle2,
+                              titleAction: titleAction,
+                              leadingAction: leadingAction,
+                              trailingAction1: trailingAction1,
+                              trailingAction2: trailingAction2)
+            content
+        }
+    }
+}
+
+extension View {
+    func accessFxNavBar(
+        title: String,
+        imageTitle1: String? = nil,
+        imageTitle2: String? = nil,
+        titleAction: (() -> Void)? = nil,
+        leadingAction: (() -> Void)? = nil,
+        trailingAction1: (() -> Void)? = nil,
+        trailingAction2: (() -> Void)? = nil
+    ) -> some View {
+        modifier(NavigationBarModifier(
+            title: title,
+            imageTitle1: imageTitle1,
+            imageTitle2: imageTitle2,
+            titleAction: titleAction,
+            leadingAction: leadingAction,
+            trailingAction1: trailingAction1,
+            trailingAction2: trailingAction2))
+    }
+}
+
